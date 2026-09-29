@@ -1,0 +1,58 @@
+export const ukCities = [
+  {
+    id: "london",
+    name: "London",
+    airports: "Heathrow · Gatwick",
+    price: 595,
+    slug: "umrah-packages-london",
+  },
+  {
+    id: "manchester",
+    name: "Manchester",
+    airports: "Direct & connecting",
+    price: 595,
+    slug: "umrah-packages-manchester",
+  },
+  {
+    id: "birmingham",
+    name: "Birmingham",
+    airports: "To Jeddah / Madinah",
+    price: 675,
+    slug: "umrah-packages-birmingham",
+  },
+  {
+    id: "bradford",
+    name: "Bradford",
+    airports: "Via Leeds Airport",
+    price: 585,
+    slug: "umrah-packages-bradford",
+  },
+  {
+    id: "glasgow",
+    name: "Glasgow",
+    airports: "Connecting flights",
+    price: 615,
+    slug: "umrah-packages-glasgow",
+  },
+  {
+    id: "edinburgh",
+    name: "Edinburgh",
+    airports: "Etihad · Turkish",
+    price: 630,
+    slug: "umrah-packages-edinburgh",
+  },
+  {
+    id: "liverpool",
+    name: "Liverpool",
+    airports: "Via Manchester",
+    price: 655,
+    slug: "umrah-packages-liverpool",
+  },
+  {
+    id: "leicester",
+    name: "Leicester",
+    airports: "Via Birmingham",
+    price: 510,
+    slug: "umrah-packages-leicester",
+  },
+];
