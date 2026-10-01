@@ -5,7 +5,7 @@ export default function HeroSection({ pkg }) {
   const isPackage = Boolean(pkg);
 
   return (
-    <section className="bg-islamic-pattern text-white relative py-12 md:py-10 overflow-hidden">
+    <section id="hero-section" className="bg-islamic-pattern text-white relative py-12 md:py-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
@@ -23,7 +23,7 @@ export default function HeroSection({ pkg }) {
               </div>
             )}
 
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
               {isPackage ? (
                 pkg.title
               ) : (

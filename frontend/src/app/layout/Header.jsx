@@ -3,13 +3,25 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import UtilityBar from "./UtilityBar";
+import MobileFloatingCta from "../components/ui/MobileFloatingCta";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
+  const [showCallModal, setShowCallModal] = useState(false);
 
   const toggleSubMenu = (menuName) => {
     setOpenSubMenu(openSubMenu === menuName ? null : menuName);
+  };
+
+  const handleCallClick = (e) => {
+    if (e) e.preventDefault();
+    setShowCallModal(true);
+    try {
+      window.location.href = "tel:02039700100";
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -120,7 +132,7 @@ export default function Header() {
             </div>
 
             {/* Package by Cities Dropdown */}
-            <div className="relative group py-2">
+            {/* <div className="relative group py-2">
               <button className="flex items-center gap-1 hover:text-[#0e5c4a] transition-colors cursor-pointer">
                 Package by Cities
                 <svg
@@ -152,7 +164,7 @@ export default function Header() {
                   Umrah Packages Birmingham
                 </Link>
               </div>
-            </div>
+            </div> */}
 
             <Link href="/hajj-packages" className="hover:text-[#0e5c4a] transition-colors">
               Hajj Packages
@@ -192,37 +204,34 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Call CTA Button */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="tel:02039700100"
-              className="bg-[#0e5c4a] hover:bg-[#07382b] text-white font-semibold text-xs py-2.5 px-4 rounded-full transition-all shadow-sm flex items-center gap-2"
+          {/* Header Call CTA Buttons */}
+          <div className="flex items-center gap-2">
+            {/* Call Now Button (bg-darkgreen #07382b) - Visible on small/md screens (< lg) and desktop */}
+            <button
+              onClick={handleCallClick}
+              className="lg:hidden bg-[#07382b] hover:bg-[#05281e] text-white font-bold text-xs py-2 px-3.5 sm:px-4 sm:py-2.5 rounded-full transition-all shadow-md flex items-center gap-1.5 cursor-pointer active:scale-95"
             >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
+              <svg className="w-3.5 h-3.5 text-emerald-400 fill-current" viewBox="0 0 24 24">
+                <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              0203-970-0100
-            </a>
-          </div>
+              <span>Call Now</span>
+            </button>
 
-          {/* Mobile / Tablet Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-stone-700 hover:bg-stone-200/50 cursor-pointer"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+            {/* Mobile / Tablet Menu Toggle */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 rounded-lg text-stone-700 hover:bg-stone-200/50 cursor-pointer"
+              aria-label="Toggle navigation menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile & Medium Screen Navigation Menu Drawer */}
@@ -368,6 +377,67 @@ export default function Header() {
           </div>
         )}
       </div>
+
+      {/* App Picker / Call Popup Modal */}
+      {showCallModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+          <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl border border-stone-200 text-center relative animate-fade-in">
+            <button
+              onClick={() => setShowCallModal(false)}
+              className="absolute top-3 right-3 text-stone-400 hover:text-stone-700 text-lg font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-stone-100 transition-colors cursor-pointer"
+              aria-label="Close modal"
+            >
+              ✕
+            </button>
+
+            <div className="w-14 h-14 bg-emerald-100 text-[#07382b] rounded-full flex items-center justify-center mx-auto mb-3 shadow-inner">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+            </div>
+
+            <h3 className="text-xl font-extrabold text-[#1c2520] mb-1">Open pick an app</h3>
+            <p className="text-xs text-stone-600 mb-4">Use this number to call us directly:</p>
+
+            <div className="bg-emerald-50 border border-emerald-200/80 rounded-xl p-3.5 mb-5 shadow-xs">
+              <span className="text-2xl font-extrabold text-[#07382b] tracking-wider block">02039700100</span>
+              <span className="text-[11px] text-emerald-700 font-semibold block mt-0.5">UK Direct Line</span>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <a
+                href="tel:02039700100"
+                onClick={() => setShowCallModal(false)}
+                className="w-full bg-[#07382b] hover:bg-[#05281e] text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                Call 02039700100
+              </a>
+              <button
+                onClick={() => setShowCallModal(false)}
+                className="w-full bg-stone-100 hover:bg-stone-200 text-stone-600 font-semibold py-2.5 px-4 rounded-xl transition-all text-xs cursor-pointer"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Bottom Bar for Mobile & Md screens (< lg) */}
+      <MobileFloatingCta onOpenCallModal={handleCallClick} />
     </header>
   );
 }

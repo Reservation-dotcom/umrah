@@ -59,7 +59,7 @@ export default function PackageIncludedSection({ nightsTotal }) {
         <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#c9a24b] block mb-2">
           EVERYTHING HANDLED FOR YOU
         </span>
-        <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-[#1c2520] tracking-tight">
+        <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-[#1c2520] tracking-tight">
           What&apos;s Included In Our{" "}
           <span className="italic font-normal text-[#0e5c4a]">{nightsTotal} Nights</span> Umrah
           Package

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-export default function QuoteForm() {
+export default function QuoteForm({ tripType = "Umrah" }) {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -26,12 +26,12 @@ export default function QuoteForm() {
   return (
     <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-emerald-950/10 text-stone-900">
       <h3 className="font-serif text-2xl font-extrabold text-[#0e5c4a] mb-5 tracking-tight">
-        Get Personalised Umrah Quote
+        Get Personalised {tripType} Quote
       </h3>
 
       {submitted ? (
         <div className="bg-emerald-50 border border-emerald-300 text-emerald-800 p-4 rounded-xl text-center font-medium">
-          🎉 Thank you! Our Umrah advisor will call you within 5 minutes.
+          Thank you! Our {tripType} advisor will call you within 5 minutes.
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">

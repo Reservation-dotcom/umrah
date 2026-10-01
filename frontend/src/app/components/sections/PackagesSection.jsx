@@ -1,8 +1,19 @@
+"use client";
+
 import React from "react";
 import PackageCard from "../ui/PackageCard";
 import { packages3Star, packages4Star, packages5Star } from "@/data/packages";
 
 export default function PackagesSection() {
+  const scrollToHero = () => {
+    const hero = document.getElementById("hero-section");
+    if (hero) {
+      hero.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="py-16 md:py-15 bg-[#fbf8f1] space-y-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,6 +68,17 @@ export default function PackagesSection() {
               <PackageCard key={pkg.id} pkg={pkg} />
             ))}
           </div>
+        </div>
+
+        {/* Get Free Quote CTA Button */}
+        <div className="pt-10 text-center">
+          <button
+            onClick={scrollToHero}
+            className="bg-[#0e5c4a] hover:bg-[#07382b] active:bg-[#05281e] text-white font-extrabold py-3.5 px-8 rounded-xl transition-all shadow-md inline-flex items-center justify-center gap-2 group cursor-pointer text-base"
+          >
+            <span>Get Free Quote</span>
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </button>
         </div>
       </div>
     </section>
