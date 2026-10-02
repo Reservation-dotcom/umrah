@@ -1,6 +1,6 @@
 export const faqsData = [
   {
-    question: "What is included in your Umrah packages?",
+    question: "What’s Covered in Our Umrah Packages?",
     answer:
       "All our flight-inclusive Umrah packages include return international flights from UK airports, hotel accommodation in Makkah and Madinah, ground transport transfers (airport to hotel and inter-city transfers), and Umrah visa / Nusuk permit processing support. ATOL protection (License 10416) covers all flight-inclusive packages.",
   },
@@ -9,11 +9,11 @@ export const faqsData = [
     answer:
       "We recommend booking at least 4 to 8 weeks before your intended travel date to secure the best flight rates and hotel availability near the Haram. However, we also cater to last-minute bookings subject to visa processing and flight seat availability.",
   },
-  {
-    question: "Are flights ATOL protected when booking with Makkah Tour?",
-    answer:
-      "Yes, absolutely. 7 Continents Travel Ltd (trading as Makkah Tour) holds ATOL license 10416 issued by the UK Civil Aviation Authority. Every flight-inclusive package booked with us is 100% financially protected.",
-  },
+  // {
+  //   question: "Are flights ATOL protected when booking with Umrah Planner?",
+  //   answer:
+  //     "Yes, absolutely. 7 Continents Travel Ltd (trading as Umrah Planner) holds ATOL license 10416 issued by the UK Civil Aviation Authority. Every flight-inclusive package booked with us is 100% financially protected.",
+  // },
   {
     question: "Can I customize the hotel or duration of stay in Makkah & Madinah?",
     answer:

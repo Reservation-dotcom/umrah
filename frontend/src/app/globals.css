@@ -16,11 +16,11 @@
   font-family: var(--font-arabic);
 }
 
-/* Islamic Geometric Pattern Background */
+/* Islamic Geometric Pattern Background - Midnight Sapphire & Metallic Gold */
 .bg-islamic-pattern {
-  background-color: #0c4d3c;
-  background-image: radial-gradient(circle at 50% 50%, #0f5c49 0%, #07382b 100%),
-    radial-gradient(rgba(201, 162, 75, 0.08) 2px, transparent 2px),
+  background-color: #06142e;
+  background-image: radial-gradient(circle at 50% 50%, #0b2545 0%, #030d1b 100%),
+    radial-gradient(rgba(212, 175, 55, 0.12) 2px, transparent 2px),
     radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 100% 100%, 32px 32px, 16px 16px;
   background-position: 0 0, 0 0, 8px 8px;
@@ -28,7 +28,7 @@
 
 /* CTA Gradient Background */
 .bg-cta-pattern {
-  background: linear-gradient(135deg, #07382b 0%, #0e5c4a 50%, #07382b 100%);
+  background: linear-gradient(135deg, #030d1b 0%, #0b2545 50%, #06142e 100%);
 }
 
 /* Glassmorphism utility */
@@ -43,12 +43,13 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1ede4;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0e5c4a;
+  background: #0b2545;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #094537;
+  background: #06142e;
 }
+

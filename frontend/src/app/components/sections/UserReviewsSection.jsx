@@ -2,29 +2,29 @@ import React from "react";
 import { userReviews } from "@/data/user_review";
 
 export default function UserReviewsSection({
-  eyebrow = "CUSTOMER TESTIMONIALS",
+  eyebrow = "PILGRIM REVIEWS",
   title = (
     <>
-      Trusted by Pilgrims Across <span className="italic font-normal text-[#0e5c4a]">the UK.</span>
+      Believe by Pilgrims Across <span className="italic font-normal text-[#0e5c4a]">the UK.</span>
     </>
   ),
-  subtitle = "Real feedback from UK brothers & sisters who performed Umrah with Makkah Tour.",
+  subtitle = "Genuine experiences from UK brothers & sisters who completed their Umrah with Umrah Planner.",
   limit,
 }) {
   const reviews = typeof limit === "number" ? userReviews.slice(0, limit) : userReviews;
 
   return (
-    <section className="py-13 md:py-15 bg-[#f7f3ea] border-t border-amber-900/5">
+    <section className="py-13 md:py-15 bg-[#f1f5f9] border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#c9a24b] block mb-2">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF37] block mb-2">
             {eyebrow}
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-[#1c2520] tracking-tight">
+          <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-[#0f172a] tracking-tight">
             {title}
           </h2>
-          <p className="text-stone-600 text-sm mt-2 max-w-xl mx-auto">
+          <p className="text-slate-600 text-sm mt-2 max-w-xl mx-auto">
             {subtitle}
           </p>
         </div>
@@ -34,12 +34,12 @@ export default function UserReviewsSection({
           {reviews.map((rev) => (
             <div
               key={rev.id}
-              className="bg-white rounded-2xl p-6 border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 {/* Top Row: Verified Badge & Stars */}
                 <div className="flex items-center justify-between">
-                  <span className="bg-emerald-50 text-[#0e5c4a] text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-200/60 flex items-center gap-1">
+                  <span className="bg-blue-50 text-[#1E3A8A] text-[10px] font-bold px-2.5 py-1 rounded-full border border-blue-200/80 flex items-center gap-1">
                     <span>✓</span> Verified booking
                   </span>
                   <div className="text-amber-500 font-bold text-sm tracking-widest">
@@ -48,21 +48,21 @@ export default function UserReviewsSection({
                 </div>
 
                 {/* Testimonial Quote */}
-                <p className="text-xs text-stone-700 leading-relaxed italic">
+                <p className="text-xs text-slate-700 leading-relaxed italic">
                   "{rev.review}"
                 </p>
               </div>
 
               {/* User Avatar & Info */}
-              <div className="pt-4 mt-4 border-t border-stone-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#0e5c4a] text-amber-300 font-bold text-xs flex items-center justify-center flex-shrink-0 shadow-xs">
+              <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#06142e] text-[#D4AF37] font-bold text-xs flex items-center justify-center flex-shrink-0 shadow-xs">
                   {rev.initials}
                 </div>
                 <div>
-                  <h5 className="font-bold text-xs text-[#1c2520]">
+                  <h5 className="font-bold text-xs text-[#0f172a]">
                     {rev.name}
                   </h5>
-                  <span className="text-[10px] text-stone-500 block">
+                  <span className="text-[10px] text-slate-500 block">
                     {rev.packageInfo}
                   </span>
                 </div>

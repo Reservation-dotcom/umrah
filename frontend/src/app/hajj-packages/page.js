@@ -72,7 +72,7 @@ function renderContentLine(line, index) {
     return (
       <h2
         key={line}
-        className="font-serif text-2xl sm:text-3xl font-bold text-[#173d32] pt-8 first:pt-0"
+        className="font-serif text-2xl sm:text-3xl font-bold text-[#06142e] pt-8 first:pt-0"
       >
         {line}
       </h2>
@@ -81,7 +81,7 @@ function renderContentLine(line, index) {
 
   if (minorHeadings.has(normalizedLine)) {
     return (
-      <h3 key={line} className="font-serif text-xl font-bold text-[#173d32] pt-3">
+      <h3 key={line} className="font-serif text-xl font-bold text-[#06142e] pt-3">
         {line}
       </h3>
     );
@@ -90,15 +90,15 @@ function renderContentLine(line, index) {
   const labelEnd = line.indexOf(": ");
   if (labelEnd > 0 && labelEnd < 70) {
     return (
-      <p key={line} className="text-stone-600 leading-7">
-        <strong className="text-stone-800">{line.slice(0, labelEnd)}:</strong>
+      <p key={line} className="text-slate-600 leading-7">
+        <strong className="text-slate-800">{line.slice(0, labelEnd)}:</strong>
         {line.slice(labelEnd + 1)}
       </p>
     );
   }
 
   return (
-    <p key={line} className="text-stone-600 leading-7">
+    <p key={line} className="text-slate-600 leading-7">
       {line}
     </p>
   );
@@ -110,14 +110,14 @@ const contentLines = makkahTourContent
   .filter(Boolean);
 
 export const metadata = {
-  title: "Hajj Packages 2027 from UK | Makkah Tour",
+  title: "Hajj Packages 2027 from UK | Umrah Planner",
   description:
     "Explore Hajj packages 2027 from the UK with flights, accommodation, transport between the holy sites, and experienced group leaders.",
 };
 
 export default function HajjPackagesPage() {
   return (
-    <main className="min-h-screen bg-[#fbf8f1] flex flex-col">
+    <main className="min-h-screen bg-[#f8fafc] flex flex-col">
       <Header />
 
       <div className="flex-1">
@@ -128,19 +128,19 @@ export default function HajjPackagesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
               <div className="lg:col-span-7 space-y-5">
-                <p className="inline-flex items-center gap-2 border border-amber-300/30 bg-white/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-200">
+                <p className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-[#D4AF37]">
                   2027 Hajj packages from the UK
                 </p>
                 <h1 className="font-serif text-4xl sm:text-5xl font-extrabold leading-tight text-white">
                   {heroTitle}
                 </h1>
-                <p className="font-arabic text-3xl sm:text-4xl text-[#e5bd66]">
+                <p className="font-arabic text-3xl sm:text-4xl text-[#D4AF37]">
                   {arabicCalligraphy}
                 </p>
-                <p className="max-w-2xl text-sm sm:text-base leading-relaxed text-emerald-50/90">
+                <p className="max-w-2xl text-sm sm:text-base leading-relaxed text-blue-100/90">
                   {heroDescription}
                 </p>
-                <div className="flex flex-wrap gap-x-6 gap-y-2 border-t border-white/15 pt-5 text-xs font-semibold text-emerald-100">
+                <div className="flex flex-wrap gap-x-6 gap-y-2 border-t border-white/15 pt-5 text-xs font-semibold text-slate-200">
                   <span>ATOL protected</span>
                   <span>Experienced UK group leaders</span>
                   <span>Support throughout your journey</span>
@@ -154,14 +154,14 @@ export default function HajjPackagesPage() {
           </div>
         </section>
 
-        <section className="py-14 md:py-18 bg-[#fbf8f1]">
+        <section className="py-14 md:py-18 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
             <div className="space-y-6">
               <div className="max-w-3xl">
-                <p className="text-xs font-extrabold uppercase tracking-widest text-[#a87f2f] mb-2">
+                <p className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF37] mb-2">
                   Pre-booking · Maktab A
                 </p>
-                <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-[#1c2520]">
+                <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-[#0f172a]">
                   Hajj Packages
                 </h2>
               </div>
@@ -172,12 +172,12 @@ export default function HajjPackagesPage() {
               </div>
             </div>
 
-            <div className="space-y-6 border-t border-stone-200 pt-12">
+            <div className="space-y-6 border-t border-slate-200 pt-12">
               <div className="max-w-3xl">
-                <p className="text-xs font-extrabold uppercase tracking-widest text-[#a87f2f] mb-2">
+                <p className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF37] mb-2">
                   Installment planned · Maktab B
                 </p>
-                <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-[#1c2520]">
+                <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-[#0f172a]">
                   Hajj Packages
                 </h2>
               </div>
@@ -190,7 +190,7 @@ export default function HajjPackagesPage() {
           </div>
         </section>
 
-        <section className="bg-white border-y border-stone-200 py-14 md:py-18">
+        <section className="bg-white border-y border-slate-200 py-14 md:py-18">
           <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
             {contentLines.map(renderContentLine)}
           </article>
@@ -200,10 +200,10 @@ export default function HajjPackagesPage() {
           eyebrow="PILGRIM STORIES"
           title={
             <>
-              Real Stories from <span className="italic font-normal text-[#0e5c4a]">Our Pilgrims.</span>
+              Real Stories from <span className="italic font-normal text-[#1E3A8A]">Our Pilgrims.</span>
             </>
           }
-          subtitle="Recent feedback from pilgrims who travelled with Makkah Tour."
+          subtitle="Recent feedback from pilgrims who travelled with Umrah Planner."
           limit={4}
         />
       </div>

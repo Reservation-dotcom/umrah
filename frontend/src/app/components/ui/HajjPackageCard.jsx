@@ -35,7 +35,7 @@ export default function HajjPackageCard({ pkg }) {
 
         <div className="grid grid-cols-2 gap-2">
           <a
-            href="https://api.whatsapp.com/send?phone=442039700100"
+            href="https://api.whatsapp.com/send?phone=447883408637"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-1.5 rounded-lg bg-[#07382b] px-3 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#0e5c4a]"

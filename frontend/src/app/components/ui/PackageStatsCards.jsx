@@ -3,7 +3,7 @@ import React from "react";
 
 function ClockIcon() {
   return (
-    <svg className="w-6 h-6 text-[#0e5c4a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="w-6 h-6 text-[#1E3A8A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -31,7 +31,7 @@ export default function PackageStatsCards({ pkg }) {
       value: (
         <>
           {pkg.nightsTotal} Nights
-          <span className="block text-sm font-semibold text-stone-500">Days</span>
+          <span className="block text-sm font-semibold text-slate-500">Days</span>
         </>
       ),
       icon: <ClockIcon />,
@@ -69,16 +69,16 @@ export default function PackageStatsCards({ pkg }) {
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="bg-white rounded-2xl border border-stone-200/80 shadow-xs px-4 py-4 flex items-center gap-3 lg:justify-start justify-center"
+          className="bg-white rounded-2xl border border-slate-200/80 shadow-xs px-4 py-4 flex items-center gap-3 lg:justify-start justify-center"
         >
-          <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
             {stat.icon}
           </div>
           <div className="min-w-0">
-            <span className="block text-[10px] font-extrabold uppercase tracking-wider text-stone-400">
+            <span className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
               {stat.label}
             </span>
-            <span className="font-serif text-lg font-extrabold text-[#1c2520] leading-tight block">
+            <span className="font-serif text-lg font-extrabold text-[#0f172a] leading-tight block">
               {stat.value}
             </span>
           </div>

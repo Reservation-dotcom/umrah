@@ -1,6 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
+// ─── validation helpers ──────────────────────────────────────────────────────
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+function isValidPhone(phone) {
+  return /^[\d\s\+\-\(\)]{7,20}$/.test(phone.trim());
+}
 
 export default function QuoteForm({ tripType = "Umrah" }) {
   const [formData, setFormData] = useState({
@@ -9,93 +18,139 @@ export default function QuoteForm({ tripType = "Umrah" }) {
     email: "",
     travellers: "2 Passengers",
     travelDate: "",
-    promoCode: "",
-    captcha: "",
+    numberOfDays: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleChange = (field) => (e) =>
+    setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 4000);
+
+    const { fullName, phone, email, travellers, travelDate, numberOfDays } = formData;
+
+    // ── client-side validation ──────────────────────────────────────────────
+    if (!fullName || fullName.trim().length < 2) {
+      toast.error("Please enter your full name (at least 2 characters).");
+      return;
+    }
+    if (!phone || !isValidPhone(phone)) {
+      toast.error("Please enter a valid phone number.");
+      return;
+    }
+    if (!email || !isValidEmail(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/send-enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: fullName.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          passengers: travellers,
+          travelDate: travelDate || null,
+          numberOfDays: numberOfDays || null,
+          enquirySource: tripType,   // "Umrah" | "Hajj" | "Ramadan" etc.
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success(
+          `Thank you! Your ${tripType} enquiry has been sent. Our advisor will contact you shortly.`,
+          { duration: 5000 }
+        );
+        setFormData({
+          fullName: "",
+          phone: "",
+          email: "",
+          travellers: "2 Passengers",
+          travelDate: "",
+          numberOfDays: "",
+        });
+      } else {
+        const msgs = data.errors || ["Something went wrong. Please try again."];
+        msgs.forEach((msg) => toast.error(msg));
+      }
+    } catch {
+      toast.error("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  return (
-    <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-emerald-950/10 text-stone-900">
-      <h3 className="font-serif text-2xl font-extrabold text-[#0e5c4a] mb-5 tracking-tight">
-        Get Personalised {tripType} Quote
-      </h3>
+  const inputCls =
+    "w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#06142e] transition-all";
 
-      {submitted ? (
-        <div className="bg-emerald-50 border border-emerald-300 text-emerald-800 p-4 rounded-xl text-center font-medium">
-          Thank you! Our {tripType} advisor will call you within 5 minutes.
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Grid Row 1: Name & Phone */}
+  return (
+    <>
+      <Toaster position="top-center" />
+
+      <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-200 text-slate-900">
+        <h3 className="font-serif text-2xl font-extrabold text-[#06142e] mb-5 tracking-tight">
+          Request Your {tripType} Quote
+        </h3>
+
+        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+          {/* Row 1: Name & Phone */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <div>
-              <label className="block text-xs font-bold text-stone-700 mb-1">
+              <label className="block text-xs font-bold text-slate-700 mb-1">
                 Full Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
-                required
                 placeholder="Your name"
                 value={formData.fullName}
-                onChange={(e) =>
-                  setFormData({ ...formData, fullName: e.target.value })
-                }
-                className="w-[#100%] w-full bg-[#fbf8f1] border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#0e5c4a] transition-all"
+                onChange={handleChange("fullName")}
+                className={inputCls}
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-stone-700 mb-1">
+              <label className="block text-xs font-bold text-slate-700 mb-1">
                 Phone <span className="text-red-500">*</span>
               </label>
               <input
                 type="tel"
-                required
                 placeholder="07xxx xxxxxx"
                 value={formData.phone}
-                onChange={(e) =>
-                  setFormData({ ...formData, phone: e.target.value })
-                }
-                className="w-full bg-[#fbf8f1] border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#0e5c4a] transition-all"
+                onChange={handleChange("phone")}
+                className={inputCls}
               />
             </div>
           </div>
 
-          {/* Grid Row 2: Email & Travellers */}
+          {/* Row 2: Email & Travellers */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <div>
-              <label className="block text-xs font-bold text-stone-700 mb-1">
+              <label className="block text-xs font-bold text-slate-700 mb-1">
                 Email <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
-                required
-                placeholder="your.email@example.cc"
+                placeholder="your.email@example.com"
                 value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                className="w-full bg-[#fbf8f1] border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#0e5c4a] transition-all"
+                onChange={handleChange("email")}
+                className={inputCls}
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-stone-700 mb-1">
+              <label className="block text-xs font-bold text-slate-700 mb-1">
                 Travellers
               </label>
               <select
                 value={formData.travellers}
-                onChange={(e) =>
-                  setFormData({ ...formData, travellers: e.target.value })
-                }
-                className="w-full bg-[#fbf8f1] border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#0e5c4a] transition-all"
+                onChange={handleChange("travellers")}
+                className={inputCls}
               >
                 <option value="1 Passenger">1 Passenger</option>
                 <option value="2 Passengers">2 Passengers</option>
@@ -106,61 +161,54 @@ export default function QuoteForm({ tripType = "Umrah" }) {
             </div>
           </div>
 
-          {/* Grid Row 3: Travel Date, Promo Code, Captcha */}
-          <div className="grid grid-cols-3 gap-2.5">
+          {/* Row 3: Travel Date & Number of Days */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <div>
-              <label className="block text-[11px] font-bold text-stone-700 mb-1">
+              <label className="block text-xs font-bold text-slate-700 mb-1">
                 Travel Date
               </label>
               <input
                 type="date"
                 value={formData.travelDate}
-                onChange={(e) =>
-                  setFormData({ ...formData, travelDate: e.target.value })
-                }
-                className="w-full bg-[#fbf8f1] border border-stone-200 rounded-xl px-2 py-2 text-[11px] text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#0e5c4a] transition-all"
+                onChange={handleChange("travelDate")}
+                className={inputCls}
               />
             </div>
             <div>
-              <label className="block text-[11px] font-bold text-stone-700 mb-1">
-                Promo Code
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Number of Days
               </label>
               <input
-                type="text"
-                placeholder="OPTIONAL"
-                value={formData.promoCode}
-                onChange={(e) =>
-                  setFormData({ ...formData, promoCode: e.target.value })
-                }
-                className="w-full bg-[#fbf8f1] border border-stone-200 rounded-xl px-2 py-2 text-[11px] text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#0e5c4a] transition-all uppercase"
-              />
-            </div>
-            <div>
-              <label className="block text-[11px] font-bold text-stone-700 mb-1">
-                Captcha: 4 + 2 = ? <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="Answer"
-                value={formData.captcha}
-                onChange={(e) =>
-                  setFormData({ ...formData, captcha: e.target.value })
-                }
-                className="w-full bg-[#fbf8f1] border border-stone-200 rounded-xl px-2 py-2 text-[11px] text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#0e5c4a] transition-all"
+                type="number"
+                min="1"
+                placeholder="e.g. 10"
+                value={formData.numberOfDays}
+                onChange={handleChange("numberOfDays")}
+                className={inputCls}
               />
             </div>
           </div>
 
-          {/* Submit Button */}
+          {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-[#07382b] hover:bg-[#0e5c4a] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer mt-2 text-sm"
+            disabled={loading}
+            className="w-full bg-[#06142e] hover:bg-[#0b2545] disabled:opacity-60 disabled:cursor-not-allowed text-white font-extrabold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer mt-2 text-sm"
           >
-            Request My Price →
+            {loading ? (
+              <>
+                <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                </svg>
+                Sending…
+              </>
+            ) : (
+              "Request My Price →"
+            )}
           </button>
         </form>
-      )}
-    </div>
+      </div>
+    </>
   );
 }

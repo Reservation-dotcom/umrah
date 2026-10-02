@@ -11,7 +11,7 @@ import CtaBanner from "./components/sections/CtaBanner";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#fbf8f1] flex flex-col justify-between selection:bg-[#c9a24b] selection:text-white">
+    <main className="min-h-screen bg-[#f8fafc] flex flex-col justify-between selection:bg-[#d4af37] selection:text-slate-950">
       {/* Header & Navigation */}
       <Header />
 

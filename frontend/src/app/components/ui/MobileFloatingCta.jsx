@@ -15,18 +15,18 @@ export default function MobileFloatingCta({ onOpenCallModal }) {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 p-3 bg-white/95 backdrop-blur-md border-t border-stone-200 shadow-2xl lg:hidden">
       <div className="max-w-md mx-auto flex items-center gap-2.5">
-        {/* Get Free Quote Button (covers full remaining width) */}
+        {/* Request Quote Button (covers full remaining width) */}
         <button
           onClick={scrollToHero}
-          className="flex-1 bg-[#005C49] hover:bg-[#07382b] active:bg-[#05281e] text-white font-extrabold text-sm sm:text-base py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+          className="flex-1 bg-[#06142e] hover:bg-[#0b2545] active:bg-[#030d1b] text-white font-extrabold text-sm sm:text-base py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
         >
-          <span>Get Free Quote</span>
+          <span>Request Quote</span>
           <span className="text-lg leading-none">→</span>
         </button>
 
         {/* WhatsApp Button */}
         <a
-          href="https://api.whatsapp.com/send?phone=442039700100"
+          href="https://api.whatsapp.com/send?phone=447883408637"
           target="_blank"
           rel="noopener noreferrer"
           className="w-12 h-12 flex-shrink-0 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-xl flex items-center justify-center shadow-md transition-all active:scale-95"
@@ -40,8 +40,8 @@ export default function MobileFloatingCta({ onOpenCallModal }) {
         {/* Phone Contact Number Icon Button */}
         <button
           onClick={onOpenCallModal}
-          className="w-12 h-12 flex-shrink-0 bg-[#005C49] hover:bg-[#07382b] active:bg-[#05281e] text-white rounded-xl flex items-center justify-center shadow-md transition-all active:scale-95 cursor-pointer"
-          aria-label="Call Us 02039700100"
+          className="w-12 h-12 flex-shrink-0 bg-[#06142e] hover:bg-[#0b2545] active:bg-[#030d1b] text-[#D4AF37] rounded-xl flex items-center justify-center shadow-md transition-all active:scale-95 cursor-pointer"
+          aria-label="Call Us 02039700013"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path

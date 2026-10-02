@@ -21,7 +21,7 @@ const amiri = Amiri({
 });
 
 export const metadata = {
-  title: "Makkah Tour™ | Umrah Packages From UK 2026",
+  title: "Umrah Planner™ | Umrah Packages From UK 2026",
   description:
     "ATOL protected Umrah packages from UK combining return flights, 3/4/5-star hotels in Makkah & Madinah, airport transfers & Nusuk permit support from £725 per person.",
 };
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${outfit.variable} ${fraunces.variable} ${amiri.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#fbf8f1] text-[#1c2520] selection:bg-[#c9a24b] selection:text-white">
+      <body className="min-h-full flex flex-col font-sans bg-[#f8fafc] text-[#0f172a] selection:bg-[#d4af37] selection:text-slate-950">
         {children}
       </body>
     </html>

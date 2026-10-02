@@ -8,27 +8,120 @@ import RelevantPackagesSidebar from "../components/sections/RelevantPackagesSide
 import UserReviewsSection from "../components/sections/UserReviewsSection";
 import CtaBanner from "../components/sections/CtaBanner";
 import PackageStatsCards from "../components/ui/PackageStatsCards";
-import { allPackages, getPackageBySlug, getRelevantPackages } from "@/data/packages";
+import {
+  allPackages,
+  getPackageBySlug,
+  getRelevantPackages,
+  packages3Star as ukPackages3Star,
+  packages4Star as ukPackages4Star,
+  packages5Star as ukPackages5Star,
+} from "@/data/packages";
+import { heroSection as londonHeroSection, packages3Star as londonPackages3Star, packages4Star as londonPackages4Star, packages5Star as londonPackages5Star } from "@/data/london_umrah_package";
+import { packages3Star as manchesterPackages3Star, packages4Star as manchesterPackages4Star, packages5Star as manchesterPackages5Star } from "@/data/manchester_umrah_package";
+import { ukCities } from "@/data/cities";
+import PackageCard from "../components/ui/PackageCard";
+
+const cityPackageSets = {
+  "umrah-packages-london": {
+    packages3Star: londonPackages3Star,
+    packages4Star: londonPackages4Star,
+    packages5Star: londonPackages5Star,
+  },
+  "umrah-packages-manchester": {
+    packages3Star: manchesterPackages3Star,
+    packages4Star: manchesterPackages4Star,
+    packages5Star: manchesterPackages5Star,
+  },
+};
 
 export function generateStaticParams() {
-  return allPackages.map((pkg) => ({ slug: pkg.slug }));
+  return [
+    ...allPackages.map((pkg) => ({ slug: pkg.slug })),
+    ...ukCities.map((city) => ({ slug: city.slug })),
+  ];
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
+  const city = ukCities.find((item) => item.slug === slug);
+  if (city) {
+    return {
+      title: `Umrah Packages from ${city.name} from £${city.price}pp | Umrah Planner™`,
+      description: `Compare 3, 4 and 5-star Umrah packages departing from ${city.name}. Browse available itineraries and choose the right package for your journey.`,
+    };
+  }
+
   const pkg = getPackageBySlug(slug);
   if (!pkg) {
-    return { title: "Package not found | Makkah Tour™" };
+    return { title: "Package not found | Umrah Planner™" };
   }
   return {
-    title: `${pkg.title} from £${pkg.price}pp | Makkah Tour™`,
+    title: `${pkg.title} from £${pkg.price}pp | Umrah Planner™`,
     description: pkg.description,
   };
 }
 
 export default async function PackageDetailPage({ params }) {
   const { slug } = await params;
+  const city = ukCities.find((item) => item.slug === slug);
   const pkg = getPackageBySlug(slug);
+
+  if (city) {
+    const heroCity = city.slug === "umrah-packages-london"
+      ? { ...city, description: londonHeroSection }
+      : city;
+    const cityPackages = cityPackageSets[city.slug] ?? {
+      packages3Star: ukPackages3Star,
+      packages4Star: ukPackages4Star,
+      packages5Star: ukPackages5Star,
+    };
+    const packageGroups = [
+      { title: "3 Star Umrah Packages", packages: cityPackages.packages3Star },
+      { title: "4 Star Umrah Packages", packages: cityPackages.packages4Star },
+      { title: "5 Star Umrah Packages", packages: cityPackages.packages5Star },
+    ];
+
+    return (
+      <main className="min-h-screen bg-[#f8fafc] flex flex-col justify-between selection:bg-[#d4af37] selection:text-slate-950">
+        <Header />
+
+        <div className="flex-1">
+          <HeroSection city={heroCity} />
+
+          <section className="py-12 md:py-16 bg-[#f8fafc]">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+              {packageGroups.map((group) => (
+                <div key={group.title} className="space-y-6">
+                  <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0f172a]">
+                    {group.title.split(" ")[0]} {group.title.split(" ")[1]} Umrah{" "}
+                    <span className="italic font-normal text-[#1E3A8A]">Packages</span>
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {group.packages.map((cityPackage) => (
+                      <PackageCard key={cityPackage.id} pkg={cityPackage} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <UserReviewsSection
+            eyebrow={`${city.name.toUpperCase()} PILGRIM REVIEWS`}
+            title={
+              <>
+                Umrah experiences from{" "}
+                <span className="italic font-normal text-[#1E3A8A]">our pilgrims.</span>
+              </>
+            }
+            limit={3}
+          />
+        </div>
+
+        <Footer />
+      </main>
+    );
+  }
 
   if (!pkg) {
     notFound();
@@ -37,7 +130,7 @@ export default async function PackageDetailPage({ params }) {
   const relevant = getRelevantPackages(pkg);
 
   return (
-    <main className="min-h-screen bg-[#fbf8f1] flex flex-col justify-between selection:bg-[#c9a24b] selection:text-white">
+    <main className="min-h-screen bg-[#f8fafc] flex flex-col justify-between selection:bg-[#d4af37] selection:text-slate-950">
       <Header />
 
       <div className="flex-1">
@@ -60,13 +153,13 @@ export default async function PackageDetailPage({ params }) {
         </section>
 
         <UserReviewsSection
-          eyebrow="VERIFIED PILGRIMS"
+          eyebrow="PILGRIMS REVIEWS"
           title={
             <>
-              Real Stories from <span className="italic font-normal text-[#0e5c4a]">Verified Pilgrims.</span>
+              Genuine Reviews from <span className="italic font-normal text-[#1E3A8A]"> Pilgrims.</span>
             </>
           }
-          subtitle="No paid reviews. Every testimonial linked to a real booking."
+          subtitle="No sponsored feedback. Each review is connected to a genuine reservation."
           limit={3}
         />
 

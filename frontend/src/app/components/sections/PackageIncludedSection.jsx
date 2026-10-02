@@ -2,7 +2,7 @@ import React from "react";
 import { packageIncludes, packageGoodToKnow } from "@/data/package_includes";
 
 function IncludeIcon({ type }) {
-  const className = "w-7 h-7 text-[#0e5c4a]";
+  const className = "w-7 h-7 text-[#1E3A8A]";
   if (type === "plane") {
     return (
       <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,16 +56,16 @@ export default function PackageIncludedSection({ nightsTotal }) {
   return (
     <div className="pt-10 space-y-6">
       <div>
-        <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#c9a24b] block mb-2">
-          EVERYTHING HANDLED FOR YOU
+        <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF37] block mb-2">
+          EVERYTHING Arranged FOR YOU
         </span>
-        <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-[#1c2520] tracking-tight">
-          What&apos;s Included In Our{" "}
-          <span className="italic font-normal text-[#0e5c4a]">{nightsTotal} Nights</span> Umrah
-          Package
+        <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0f172a] tracking-tight">
+          What Your {" "}
+          <span className="italic font-normal text-[#1E3A8A]">{nightsTotal} Nights</span> Umrah
+          Package Cover
         </h2>
-        <p className="text-stone-600 text-sm mt-2">
-          No add-ons, no upgrades pushed at checkout. The price you see is exactly what you pay.
+        <p className="text-slate-600 text-sm mt-2">
+          No hidden extras, surprise fees, or unnecessary upgrades. The amount displayed is the final price you pay.
         </p>
       </div>
 
@@ -73,16 +73,16 @@ export default function PackageIncludedSection({ nightsTotal }) {
         {packageIncludes.map((item) => (
           <div
             key={item.id}
-            className="bg-white rounded-2xl border border-stone-200/80 p-5 shadow-xs flex items-start gap-4"
+            className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs flex items-start gap-4"
           >
-            <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
               <IncludeIcon type={item.icon} />
             </div>
             <div>
-              <h3 className="font-serif text-lg font-bold text-[#1c2520] mb-1">{item.title}</h3>
-              <p className="text-xs text-stone-600 leading-relaxed mb-3">{item.description}</p>
+              <h3 className="font-serif text-lg font-bold text-[#0f172a] mb-1">{item.title}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed mb-3">{item.description}</p>
               {item.included && (
-                <span className="inline-flex bg-[#c9a24b] text-white text-[10px] font-bold px-2.5 py-1 rounded-md">
+                <span className="inline-flex bg-[#D4AF37] text-slate-950 text-[10px] font-bold px-2.5 py-1 rounded-md">
                   Included
                 </span>
               )}
@@ -91,12 +91,12 @@ export default function PackageIncludedSection({ nightsTotal }) {
         ))}
       </div>
 
-      <div className="bg-[#f4eee3] border border-amber-900/10 rounded-2xl p-5">
-        <h4 className="font-bold text-sm text-[#1c2520] mb-3">Good to Know</h4>
+      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+        <h4 className="font-bold text-sm text-[#0f172a] mb-3">Good to Know</h4>
         <ul className="space-y-2">
           {packageGoodToKnow.map((note) => (
-            <li key={note} className="text-xs text-stone-600 flex items-start gap-2">
-              <span className="text-[#c9a24b]">✦</span>
+            <li key={note} className="text-xs text-slate-600 flex items-start gap-2">
+              <span className="text-[#D4AF37]">✦</span>
               <span>{note}</span>
             </li>
           ))}
