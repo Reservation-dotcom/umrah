@@ -48,7 +48,7 @@ export default function QuoteForm({ tripType = "Umrah" }) {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/send-enquiry", {
+      const res = await fetch("/api/send-enquiry.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -64,7 +64,7 @@ export default function QuoteForm({ tripType = "Umrah" }) {
 
       const data = await res.json();
 
-      if (data.success) {
+      if (res.ok && data.success) {
         toast.success(
           `Thank you! Your ${tripType} enquiry has been sent. Our advisor will contact you shortly.`,
           { duration: 5000 }

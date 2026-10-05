@@ -32,7 +32,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${outfit.variable} ${fraunces.variable} ${amiri.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#f8fafc] text-[#0f172a] selection:bg-[#d4af37] selection:text-slate-950">
+      <body
+        suppressHydrationWarning
+        className="min-h-full flex flex-col font-sans bg-[#f8fafc] text-[#0f172a] selection:bg-[#d4af37] selection:text-slate-950"
+      >
         {children}
       </body>
     </html>

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default function UtilityBar() {
   return (
@@ -42,8 +43,8 @@ export default function UtilityBar() {
             </svg>
             Call Now
           </a>
-          <a
-            href="mailto:admin@umrahplaners.co.uk"
+          <Link
+            href="/contact-us#contact-enquiry-form"
             className="flex items-center gap-1.5 hover:text-[#D4AF37] transition-colors"
           >
             <svg
@@ -60,7 +61,7 @@ export default function UtilityBar() {
               />
             </svg>
             admin@umrahplaners.co.uk
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import WhatsAppIcon from "../ui/WhatsAppIcon";
 import {
   packageTierTable,
   idealPackageGuide,
@@ -133,8 +134,9 @@ export default function UmrahPackageGlanceSection() {
                   href="https://api.whatsapp.com/send?phone=447883408637"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold py-2 px-4 rounded-full transition-all"
+                  className="bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold py-2 px-4 rounded-full transition-all inline-flex items-center gap-1.5"
                 >
+                  <WhatsAppIcon className="h-4 w-4" />
                   WhatsApp Us
                 </a>
               </div>

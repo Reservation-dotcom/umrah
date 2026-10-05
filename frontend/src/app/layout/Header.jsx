@@ -2,8 +2,10 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import UtilityBar from "./UtilityBar";
 import MobileFloatingCta from "../components/ui/MobileFloatingCta";
+import { ukCities } from "@/data/cities";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -32,21 +34,21 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative flex items-center justify-center">
-              <div className="w-10 h-10 bg-[#06142e] rounded-xl p-1.5 flex items-center justify-center text-[#D4AF37] shadow-md group-hover:scale-105 transition-transform">
-                <svg
-                  className="w-7 h-7 text-[#D4AF37]"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.24l7.6 3.8-7.6 3.8-7.6-3.8L12 4.24zM4 9.1l7 3.5v7.3l-7-3.5V9.1zm16 0v7.3l-7 3.5v-7.3l7-3.5z" />
-                </svg>
-              </div>
+            <div className="relative h-12 w-14 overflow-hidden transition-transform group-hover:scale-105 sm:h-15 sm:w-18">
+              <Image
+                src="/umrah-Planner-logo.png"
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 639px)  72px"
+                className="object-cover"
+              />
             </div>
+
             <div className="flex flex-col">
               <div className="flex items-center gap-1">
-                <span className="font-serif text-2xl font-extrabold text-[#06142e] tracking-tight">
-                  Umrah Planner
+                <span className="font-serif text-lg sm:text-2xl font-extrabold text-[#06142e] tracking-tight">
+                  Umrah Planers
                 </span>
                 <span className="text-xs text-[#D4AF37] font-semibold">™</span>
               </div>
@@ -97,6 +99,32 @@ export default function Header() {
               </div>
             </div>
 
+            {/* Packages by City Dropdown */}
+            <div className="relative group py-2">
+              <button className="flex items-center gap-1 hover:text-[#1E3A8A] transition-colors cursor-pointer">
+                Packages by City
+                <svg
+                  className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-56 max-h-[70vh] overflow-y-auto bg-white shadow-xl rounded-xl border border-slate-100 p-2 space-y-1">
+                {ukCities.map((city) => (
+                  <Link
+                    key={city.id}
+                    href={`/${city.slug}`}
+                    className="block px-3 py-2 text-xs font-medium hover:bg-slate-50 hover:text-[#1E3A8A] rounded-lg"
+                  >
+                    Umrah Packages from {city.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             {/* Special Packages Dropdown */}
             <div className="relative group py-2">
               <button className="flex items-center gap-1 hover:text-[#1E3A8A] transition-colors cursor-pointer">
@@ -137,7 +165,7 @@ export default function Header() {
             </Link>
 
             {/* More Dropdown */}
-            <div className="relative group py-2">
+            {/* <div className="relative group py-2">
               <button className="flex items-center gap-1 hover:text-[#1E3A8A] transition-colors cursor-pointer">
                 More
                 <svg
@@ -163,7 +191,7 @@ export default function Header() {
                   FAQs
                 </Link>
               </div>
-            </div>
+            </div> */}
 
             <Link href="/contact-us" className="hover:text-[#1E3A8A] transition-colors">
               Contact
@@ -249,6 +277,34 @@ export default function Header() {
               )}
             </div>
 
+            {/* Submenu Item 2: Packages by City */}
+            <div>
+              <button
+                onClick={() => toggleSubMenu("city")}
+                className="w-full flex items-center justify-between py-2 px-3 text-sm font-bold text-[#0f172a] hover:text-[#1E3A8A] cursor-pointer"
+                aria-expanded={openSubMenu === "city"}
+              >
+                <span>Packages by City</span>
+                <span className="text-base font-extrabold text-[#1E3A8A]">
+                  {openSubMenu === "city" ? "−" : "+"}
+                </span>
+              </button>
+              {openSubMenu === "city" && (
+                <div className="px-3 py-2 bg-slate-50 rounded-xl border border-slate-200 grid grid-cols-2 gap-2">
+                  {ukCities.map((city) => (
+                    <Link
+                      key={city.id}
+                      href={`/${city.slug}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-3 py-2 text-xs font-semibold bg-white text-[#0f172a] hover:text-[#1E3A8A] rounded-lg border border-slate-200"
+                    >
+                      {city.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             {/* Submenu Item 2: Special Packages */}
             <div>
               <button
@@ -269,7 +325,7 @@ export default function Header() {
                   >
                     Ramadan Packages
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/december-umrah-packages"
                     onClick={() => setMobileMenuOpen(false)}
                     className="inline-block px-3 py-1.5 text-xs font-semibold bg-amber-50 text-amber-900 rounded-lg"
@@ -282,7 +338,7 @@ export default function Header() {
                     className="inline-block px-3 py-1.5 text-xs font-semibold bg-amber-50 text-amber-900 rounded-lg"
                   >
                     Easter Packages
-                  </Link>
+                  </Link> */}
                 </div>
               )}
             </div>

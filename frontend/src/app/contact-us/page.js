@@ -1,6 +1,8 @@
+import Link from "next/link";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import ContactEnquiryForm from "../components/forms/ContactEnquiryForm";
+import WhatsAppIcon from "../components/ui/WhatsAppIcon";
 
 const whatsappUrl = "https://wa.me/447883408637";
 const contactEmail = "admin@umrahplaners.co.uk";
@@ -31,12 +33,16 @@ const contactMethods = [
     kind: "email",
     title: "Email",
     detail: contactEmail,
-    description: "Reply within 1 hour during office hours",
-    href: `mailto:${contactEmail}`,
+    description: "Send us a message through our enquiry form",
+    href: "/contact-us#contact-enquiry-form",
   },
 ];
 
 function ContactIcon({ kind, className = "h-5 w-5" }) {
+  if (kind === "whatsapp") {
+    return <WhatsAppIcon className={className} />;
+  }
+
   return (
     <svg
       className={className}
@@ -50,12 +56,6 @@ function ContactIcon({ kind, className = "h-5 w-5" }) {
     >
       {kind === "phone" && (
         <path d="M5 4h3l2 5-2 1.5a15 15 0 0 0 5.5 5.5L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
-      )}
-      {kind === "whatsapp" && (
-        <>
-          <path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L4 20l1.1-3.7A8.5 8.5 0 1 1 20.5 11.5Z" />
-          <path d="M9 8.5c.4 2.3 2.2 4.1 4.5 4.5" />
-        </>
       )}
       {kind === "email" && (
         <>
@@ -96,7 +96,7 @@ export default function ContactUsPage() {
                 وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ
               </p>
               <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-blue-100/90 sm:text-base">
-                No automated replies. No rehearsed responses. Connect with a knowledgeable Umrah specialist who understands the journey from start to finish — reachable through phone, WhatsApp, or emai
+                No automated replies. No rehearsed responses. Connect with a knowledgeable Umrah specialist who understands the journey from start to finish — reachable through phone, WhatsApp, or email.
               </p>
 
               <div className="mt-7 flex flex-wrap justify-center gap-3">
@@ -116,13 +116,13 @@ export default function ContactUsPage() {
                   <ContactIcon kind="whatsapp" className="h-4 w-4" />
                   WhatsApp
                 </a>
-                <a
-                  href={`mailto:${contactEmail}`}
+                <Link
+                  href="/contact-us#contact-enquiry-form"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/10 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/15"
                 >
                   <ContactIcon kind="email" className="h-4 w-4" />
                   Email Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -130,7 +130,10 @@ export default function ContactUsPage() {
 
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-8">
-            <div className="lg:col-span-7">
+            <div
+              id="contact-enquiry-form"
+              className="scroll-mt-24 lg:col-span-7"
+            >
               <ContactEnquiryForm />
             </div>
 

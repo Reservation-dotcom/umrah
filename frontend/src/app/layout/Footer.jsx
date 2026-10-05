@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import WhatsAppIcon from "../components/ui/WhatsAppIcon";
 
 export default function Footer() {
   return (
@@ -10,13 +12,9 @@ export default function Footer() {
           {/* Column 1: Brand & Licensing */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-[#06142e] rounded-lg p-1 flex items-center justify-center text-[#D4AF37]">
-                <svg className="w-5 h-5 text-[#D4AF37]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.24l7.6 3.8-7.6 3.8-7.6-3.8L12 4.24zM4 9.1l7 3.5v7.3l-7-3.5V9.1zm16 0v7.3l-7 3.5v-7.3l7-3.5z" />
-                </svg>
-              </div>
+              
               <span className="font-serif text-xl font-bold text-white tracking-tight">
-                Umrah Planner<span className="text-[#D4AF37]">™</span>
+                Umrah Planers<span className="text-[#D4AF37]">™</span>
               </span>
             </Link>
 
@@ -147,15 +145,15 @@ export default function Footer() {
               </li>
               <li>
                 <a href="https://api.whatsapp.com/send?phone=447883408637" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#D4AF37]">
-                  <span>📱</span>
+                  <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
                   <span>WhatsApp</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:admin@umrahplaners.co.uk" className="flex items-center gap-2 hover:text-[#D4AF37]">
+                <Link href="/contact-us#contact-enquiry-form" className="flex items-center gap-2 hover:text-[#D4AF37]">
                   <span>✉️</span>
                   <span>admin@umrahplaners.co.uk</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -163,7 +161,7 @@ export default function Footer() {
 
         {/* Bottom Disclaimer */}
         <div className="mt-12 pt-6 border-t border-slate-800 text-center text-[11px] text-slate-500 space-y-2">
-          <p>© UmrahPlanner. All flights and flight-inclusive holidays are financially protected by the ATOL scheme .</p>
+          <p>© UmrahPlaners. All flights and flight-inclusive holidays are financially protected by the ATOL scheme .</p>
           <p className="max-w-4xl mx-auto leading-normal text-slate-500">
             "All flights and holiday arrangements that include air travel booked through this website are covered under the ATOL protection scheme. Once payment has been made, you will receive an ATOL Certificate. Please request your certificate and review it carefully to confirm that every element of your reservation, including flights, accommodation, and any additional services, is accurately shown."
           </p>

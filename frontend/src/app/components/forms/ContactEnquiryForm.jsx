@@ -66,7 +66,7 @@ export default function ContactEnquiryForm() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/send-enquiry", {
+      const res = await fetch("/api/send-enquiry.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -76,6 +76,8 @@ export default function ContactEnquiryForm() {
           passengers: formData.travellers || "Not specified",
           travelDate: formData.month || null,
           numberOfDays: null,
+          city: formData.city || null,
+          message: formData.message.trim() || null,
           enquirySource: formData.package
             ? `Contact Page – ${formData.package}`
             : "Contact Page",
@@ -84,7 +86,7 @@ export default function ContactEnquiryForm() {
 
       const data = await res.json();
 
-      if (data.success) {
+      if (res.ok && data.success) {
         toast.success(
           "Your enquiry has been sent! Our advisor will be in touch within 1 hour.",
           { duration: 5000 }

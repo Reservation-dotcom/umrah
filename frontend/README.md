@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Umrah Planner frontend
 
-## Getting Started
+## Build for cPanel
 
-First, run the development server:
+This project is exported as a static site because the cPanel hosting account does not run Node.js. From the `frontend` folder, run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Upload the **contents** of the generated `out` folder to the document root for `umrahPlanner.co.uk` (usually `public_html` or the domain's configured document root). Do not upload `.env.local` or the source project. The export contains static HTML, JavaScript, CSS, images, and `api/send-enquiry.php`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The PHP endpoint requires PHP with the `mail()` function enabled. Create the `admin@umrahplaners.co.uk` mailbox in cPanel, and make sure it is permitted as the sender. If you use a different mailbox, update `ENQUIRY_TO_EMAIL` and `ENQUIRY_FROM_EMAIL` at the top of `public/api/send-enquiry.php` before building. Configure the domain's SPF/DKIM email records in cPanel to improve delivery.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+After uploading, test both the homepage and a direct page URL, then submit each enquiry form and confirm delivery to the mailbox. If the form reports a sending error, check cPanel's PHP error log and mail delivery reports; some hosts require authenticated SMTP instead of PHP `mail()`.
 
-## Learn More
+## Local development
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm ci
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The PHP enquiry endpoint must be hosted by a PHP-enabled web server; it is not served by `next dev`.
