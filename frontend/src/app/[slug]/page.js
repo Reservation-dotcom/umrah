@@ -16,23 +16,9 @@ import {
   packages4Star as ukPackages4Star,
   packages5Star as ukPackages5Star,
 } from "@/data/packages";
-import { heroSection as londonHeroSection, packages3Star as londonPackages3Star, packages4Star as londonPackages4Star, packages5Star as londonPackages5Star } from "@/data/london_umrah_package";
-import { packages3Star as manchesterPackages3Star, packages4Star as manchesterPackages4Star, packages5Star as manchesterPackages5Star } from "@/data/manchester_umrah_package";
 import { ukCities } from "@/data/cities";
+import { cityPackageSets } from "@/data/cityPackages";
 import PackageCard from "../components/ui/PackageCard";
-
-const cityPackageSets = {
-  "umrah-packages-london": {
-    packages3Star: londonPackages3Star,
-    packages4Star: londonPackages4Star,
-    packages5Star: londonPackages5Star,
-  },
-  "umrah-packages-manchester": {
-    packages3Star: manchesterPackages3Star,
-    packages4Star: manchesterPackages4Star,
-    packages5Star: manchesterPackages5Star,
-  },
-};
 
 export function generateStaticParams() {
   return [
@@ -67,9 +53,6 @@ export default async function PackageDetailPage({ params }) {
   const pkg = getPackageBySlug(slug);
 
   if (city) {
-    const heroCity = city.slug === "umrah-packages-london"
-      ? { ...city, description: londonHeroSection }
-      : city;
     const cityPackages = cityPackageSets[city.slug] ?? {
       packages3Star: ukPackages3Star,
       packages4Star: ukPackages4Star,
@@ -86,7 +69,7 @@ export default async function PackageDetailPage({ params }) {
         <Header />
 
         <div className="flex-1">
-          <HeroSection city={heroCity} />
+          <HeroSection city={city} />
 
           <section className="py-12 md:py-16 bg-[#f8fafc]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
@@ -94,11 +77,16 @@ export default async function PackageDetailPage({ params }) {
                 <div key={group.title} className="space-y-6">
                   <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0f172a]">
                     {group.title.split(" ")[0]} {group.title.split(" ")[1]} Umrah{" "}
-                    <span className="italic font-normal text-[#1E3A8A]">Packages</span>
+                    <span className="italic font-normal text-[#1E3A8A]">
+                      Packages from {city.name}
+                    </span>
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     {group.packages.map((cityPackage) => (
-                      <PackageCard key={cityPackage.id} pkg={cityPackage} />
+                      <PackageCard
+                        key={cityPackage.id}
+                        pkg={{ ...cityPackage, citySlug: city.slug }}
+                      />
                     ))}
                   </div>
                 </div>

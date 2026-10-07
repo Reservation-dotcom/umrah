@@ -18,8 +18,8 @@ export const packages3Star = [
     image: "https://www.makkahtour.co.uk/images/umrah-package/3-star-7-nights-umrah-package.webp",
     slug: "3-star-7-nights-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Ready for Umrah? Our 3-star 7-night package provides four nights in Makkah, three nights in Madinah, return airfare, airport transportation, and dedicated visa support from booking onwards.",
+    // description:
+    //   "Ready for Umrah? Our 3-star 7-night package provides four nights in Makkah, three nights in Madinah, return airfare, airport transportation, and dedicated visa support from booking onwards.",
   },
   {
     id: "3-star-10-nights",
@@ -40,8 +40,8 @@ export const packages3Star = [
     image: "https://www.makkahtour.co.uk/images/umrah-package/3-star-10-nights-umrah-package.webp",
     slug: "3-star-10-nights-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "An additional three nights gives you five peaceful nights in Madinah. This 10-night 3-star Umrah option includes round-trip airfare, accommodation divided between Makkah and Madinah, transportation throughout your itinerary, and straightforward assistance with your visa arrangements.",
+    // description:
+    //   "An additional three nights gives you five peaceful nights in Madinah. This 10-night 3-star Umrah option includes round-trip airfare, accommodation divided between Makkah and Madinah, transportation throughout your itinerary, and straightforward assistance with your visa arrangements.",
   },
   {
     id: "3-star-14-nights",
@@ -62,8 +62,8 @@ export const packages3Star = [
     image: "https://www.makkahtour.co.uk/images/umrah-package/3-star-14-nights-umrah-package.webp",
     slug: "3-star-14-nights-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Enjoy seven nights in each sacred destination. This 14-night 3-star Umrah package features round-trip airfare, accommodation for seven nights in Makkah and another seven in Madinah, transportation between key points, and clear support throughout the visa process.",
+    // description:
+    //   "Enjoy seven nights in each sacred destination. This 14-night 3-star Umrah package features round-trip airfare, accommodation for seven nights in Makkah and another seven in Madinah, transportation between key points, and clear support throughout the visa process.",
   },
 ];
 
@@ -84,11 +84,11 @@ export const packages4Star = [
     madinahDays: 3,
     makkahHotel: "DoubleTree by Hilton / Similar (300m)",
     madinahHotel: "Rawda Royal Inn / Similar (200m)",
-    image: "https://www.makkahtour.co.uk/images/umrah-package/4-star-7-nights-umrah-package.webp",
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/b0/1b/8e/caption.jpg?w=1200&h=-1&s=1",
     slug: "4-star-7-nights-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Four nights in Makkah followed by three nights in Madinah, offering a well-balanced blend of affordability and comfort. The package includes return airfare, 4-star accommodation close to the Haram, private transfers, and straightforward assistance with visa arrangements.",
+    // description:
+    //   "Four nights in Makkah followed by three nights in Madinah, offering a well-balanced blend of affordability and comfort. The package includes return airfare, 4-star accommodation close to the Haram, private transfers, and straightforward assistance with visa arrangements.",
   },
   {
     id: "4-star-10-nights",
@@ -106,11 +106,11 @@ export const packages4Star = [
     madinahDays: 5,
     makkahHotel: "Makkah Towers / Similar (250m)",
     madinahHotel: "Leader Al Muna Kareem / Similar (150m)",
-    image: "https://www.makkahtour.co.uk/images/umrah-package/4-star-10-nights-umrah-package.webp",
+    image: "https://media-cdn.tripadvisor.com/media/photo-s/29/f0/1d/e8/jumeirah-makkah.jpg",
     slug: "4-star-10-nights-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Ten nights in 4-star accommodation, offering an ideal balance between quality and value — a popular choice for pilgrims seeking a comfortable stay throughout their sacred journey.",
+    // description:
+    //   "Ten nights in 4-star accommodation, offering an ideal balance between quality and value — a popular choice for pilgrims seeking a comfortable stay throughout their sacred journey.",
   },
   {
     id: "4-star-14-nights",
@@ -128,11 +128,11 @@ export const packages4Star = [
     madinahDays: 7,
     makkahHotel: "Swissotel Al Maqam / Similar (Front)",
     madinahHotel: "Al Aqeeq Madinah / Similar (100m)",
-    image: "https://www.makkahtour.co.uk/images/umrah-package/4-star-14-nights-umrah-package.webp",
+    image: "https://images.trvl-media.com/lodging/1000000/490000/483200/483184/fd988187.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
     slug: "4-star-14-nights-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Enjoy 14 nights of 4-star accommodation, with seven nights in Makkah and seven nights in Madinah. Your package includes round-trip flights from the UK, transportation between destinations, and complete assistance with your visa arrangements throughout the booking process",
+    // description:
+    //   "Enjoy 14 nights of 4-star accommodation, with seven nights in Makkah and seven nights in Madinah. Your package includes round-trip flights from the UK, transportation between destinations, and complete assistance with your visa arrangements throughout the booking process",
   },
 ];
 
@@ -153,11 +153,11 @@ export const packages5Star = [
     madinahDays: 3,
     makkahHotel: "Pullman Zamzam Makkah (Haram Courtyard)",
     madinahHotel: "Dar Al Taqwa Madinah (Steps to Prophet's Mosque)",
-    image: "https://www.makkahtour.co.uk/images/umrah-package/5-star-7-nights-umrah-package.webp",
+    image: "https://makkah-madinah.accor.com/wp-content/uploads/2024/10/fairmont-makkah-Duplex-Suite-2-Bedroom-Kaaba-View-5.jpg",
     slug: "5-star-7-nights-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Four nights near the Kaaba and three near the Prophet’s Mosque — a 5-star package including UK return airfare, premium stays, transfers, and visa assistance.",
+    // description:
+    //   "Four nights near the Kaaba and three near the Prophet’s Mosque — a 5-star package including UK return airfare, premium stays, transfers, and visa assistance.",
   },
   {
     id: "5-star-10-nights",
@@ -175,11 +175,11 @@ export const packages5Star = [
     madinahDays: 5,
     makkahHotel: "Fairmont Makkah Clock Royal Tower",
     madinahHotel: "Oberoi Madinah (Direct Prophet's Gate view)",
-    image: "https://www.makkahtour.co.uk/images/umrah-package/5-star-10-nights-umrah-package.webp",
+    image: "https://images.trvl-media.com/lodging/4000000/3810000/3800200/3800117/2d37a6a3.jpg?impolicy=resizecrop&rw=1200&ra=fit",
     slug: "5-star-10-nights-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Five nights close to both sacred mosques — cherish each prayer, heartfelt supplication, and peaceful moment in the places closest to your soul.",
+    // description:
+    //   "Five nights close to both sacred mosques — cherish each prayer, heartfelt supplication, and peaceful moment in the places closest to your soul.",
   },
   {
     id: "5-star-14-nights",
@@ -197,11 +197,11 @@ export const packages5Star = [
     madinahDays: 7,
     makkahHotel: "Raffles Makkah Palace (Direct Kaaba View Suites)",
     madinahHotel: "Anwar Al Madinah Movenpick Hotel",
-    image: "https://www.makkahtour.co.uk/images/umrah-package/5-star-14-nights-umrah-package.webp",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8bWDPk96cqYEfvOMubBLaP9cALMvtojSz3Wv-hIPfsg&s=10",
     slug: "5-star-14-nights-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Fourteen nights of 5-star stays, seven in Makkah and seven in Madinah — premium hotels near the Haram, UK return flights, transport, and full visa assistance.",
+    // description:
+    //   "Fourteen nights of 5-star stays, seven in Makkah and seven in Madinah — premium hotels near the Haram, UK return flights, transport, and full visa assistance.",
   },
 ];
 
@@ -225,8 +225,8 @@ export const ramadanPackages3Star = [
     image: "https://www.makkahtour.co.uk/images/special/Ramadan/3-star-7-nights-ramadan-umrah-package.webp",
     slug: "3-star-7-nights-ramadan-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Spend Ramadan in Makkah and Madinah with our 3-star 7-night package, featuring 4 nights in Makkah, 3 nights in Madinah, round-trip flights, visa assistance, and transfers.",
+    // description:
+    //   "Spend Ramadan in Makkah and Madinah with our 3-star 7-night package, featuring 4 nights in Makkah, 3 nights in Madinah, round-trip flights, visa assistance, and transfers.",
   },
   {
     id: "3-star-last-10-nights-ramadan",
@@ -247,8 +247,8 @@ export const ramadanPackages3Star = [
     image: "https://www.makkahtour.co.uk/images/special/Ramadan/3-star-10-nights-ramadan-umrah-package.webp",
     slug: "3-star-last-10-nights-ramadan-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Mark the final 10 nights of Ramadan in Makkah and Madinah, with 5 nights in each city, return airfare, transfers, and Nusuk visa assistance included.",
+    // description:
+    //   "Mark the final 10 nights of Ramadan in Makkah and Madinah, with 5 nights in each city, return airfare, transfers, and Nusuk visa assistance included.",
   },
   {
     id: "3-star-14-nights-ramadan",
@@ -269,8 +269,8 @@ export const ramadanPackages3Star = [
     image: "https://www.makkahtour.co.uk/images/special/Ramadan/3-star-14-nights-ramadan-umrah-package.webp",
     slug: "3-star-14-nights-ramadan-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Observe 14 nights of Ramadan in the Holy Cities, with 7 nights in Makkah and 7 in Madinah, including flights, accommodation, transfers, and full visa assistance.",
+    // description:
+    //   "Observe 14 nights of Ramadan in the Holy Cities, with 7 nights in Makkah and 7 in Madinah, including flights, accommodation, transfers, and full visa assistance.",
   },
 ];
 
@@ -291,11 +291,11 @@ export const ramadanPackages4Star = [
     madinahDays: 3,
     makkahHotel: "Emaar Grand / Similar (900m)",
     madinahHotel: "Mias Hotel Madinah / Similar (7 min walk)",
-    image: "https://www.makkahtour.co.uk/images/special/Ramadan/4-star-7-nights-ramadan-umrah-package.webp",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrdhU3BsQDg3BmpiDeYoYtzTWe9n7qEw_eI0u7GsyccA&s=10",
     slug: "4-star-7-nights-ramadan-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Enjoy a 4-star Ramadan Umrah journey with 4 nights in Makkah and 3 in Madinah, including UK return airfare, lodging, transportation, and visa assistance.",
+    // description:
+    //   "Enjoy a 4-star Ramadan Umrah journey with 4 nights in Makkah and 3 in Madinah, including UK return airfare, lodging, transportation, and visa assistance.",
   },
   {
     id: "4-star-last-ashra-ramadan",
@@ -313,11 +313,11 @@ export const ramadanPackages4Star = [
     madinahDays: 5,
     makkahHotel: "Emaar Al Manar / Similar (850m)",
     madinahHotel: "Emaar Elite Madinah / Similar (200m)",
-    image: "https://www.makkahtour.co.uk/images/special/Ramadan/4-star-10-nights-ramadan-umrah-package.webp",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbvxZiEgRQ1dTGU9HDK5Co-YWuDWfOtLpDF5-0NTc6vg&s=10",
     slug: "4-star-last-ashra-ramadan-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Experience the final Ashra of Ramadan with 5 nights in Makkah and 5 nights in Madinah, quality 4-star accommodation, return flights, and transfers included.",
+    // description:
+    //   "Experience the final Ashra of Ramadan with 5 nights in Makkah and 5 nights in Madinah, quality 4-star accommodation, return flights, and transfers included.",
   },
   {
     id: "4-star-14-nights-ramadan",
@@ -335,11 +335,11 @@ export const ramadanPackages4Star = [
     madinahDays: 7,
     makkahHotel: "Emaar Elite Makkah / Similar (12 min walk)",
     madinahHotel: "Grand Plaza Badr Al Maqam / Similar (600m)",
-    image: "https://www.makkahtour.co.uk/images/special/Ramadan/4-star-14-nights-ramadan-umrah-package.webp",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbgTy1qZY-6NpNrmtja0NLnl5ApUTVBntTvfvEWjMxaw&s=10",
     slug: "4-star-14-nights-ramadan-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Enjoy a 14-night Ramadan pilgrimage with 4-star stays, spending 7 nights in Makkah and 7 in Madinah, plus airfare, city-to-city transport, and Nusuk visa assistance.",
+    // description:
+    //   "Enjoy a 14-night Ramadan pilgrimage with 4-star stays, spending 7 nights in Makkah and 7 in Madinah, plus airfare, city-to-city transport, and Nusuk visa assistance.",
   },
 ];
 
@@ -360,11 +360,11 @@ export const ramadanPackages5Star = [
     madinahDays: 3,
     makkahHotel: "Makarem Ajyad Makkah / Similar (400m)",
     madinahHotel: "Dorrar Aleiman Royal / Similar (100m)",
-    image: "https://www.makkahtour.co.uk/images/special/Ramadan/5-star-7-nights-ramadan-umrah-package.webp",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7xrfIrIAvrr08IfL0YSuEpPZZAhlJ4qcYcDKJwruOMw&s=10",
     slug: "5-star-7-nights-ramadan-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Premium 5-star Ramadan Umrah with 4 nights near the Haram in Makkah and 3 nights near the Prophet’s Mosque in Madinah, including return airfare and transfers.",
+    // description:
+    //   "Premium 5-star Ramadan Umrah with 4 nights near the Haram in Makkah and 3 nights near the Prophet’s Mosque in Madinah, including return airfare and transfers.",
   },
   {
     id: "5-star-last-10-days-ramadan",
@@ -382,11 +382,11 @@ export const ramadanPackages5Star = [
     madinahDays: 5,
     makkahHotel: "Anjum Hotel Makkah / Similar (3-5 min walk)",
     madinahHotel: "Dar Al Taqwa / Similar (100m)",
-    image: "https://www.makkahtour.co.uk/images/special/Ramadan/5-star-14-nights-ramadan-umrah-package.webp",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7FjHlFFvUAuInFeVNkHPWmHw3TRND7uuWaOzjeggJ7A&s=10",
     slug: "5-star-last-10-days-ramadan-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Spend Ramadan’s final 10 days in 5-star accommodation near Masjid al-Haram and Masjid an-Nabawi, with return airfare, transfers, and visa assistance included.",
+    // description:
+    //   "Spend Ramadan’s final 10 days in 5-star accommodation near Masjid al-Haram and Masjid an-Nabawi, with return airfare, transfers, and visa assistance included.",
   },
   {
     id: "5-star-14-nights-ramadan",
@@ -404,11 +404,11 @@ export const ramadanPackages5Star = [
     madinahDays: 7,
     makkahHotel: "Swissôtel Makkah / Similar (Ajyad St)",
     madinahHotel: "Dar Al Eiman Al Haram / Similar (200m)",
-    image: "https://www.makkahtour.co.uk/images/special/Ramadan/5-star-14-nights-ramadan-umrah-package.webp",
+    image: "/kaba.png",
     slug: "5-star-14-nights-ramadan-umrah-package",
     features: ["Flights", "Visa", "Hotel", "Transfers"],
-    description:
-      "Enjoy an exclusive 14-night Ramadan journey with 5-star stays, including 7 nights in Makkah and 7 in Madinah, airfare, transportation, and dedicated visa assistance.",
+    // description:
+    //   "Enjoy an exclusive 14-night Ramadan journey with 5-star stays, including 7 nights in Makkah and 7 in Madinah, airfare, transportation, and dedicated visa assistance.",
   },
 ];
 

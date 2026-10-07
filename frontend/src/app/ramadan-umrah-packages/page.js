@@ -14,7 +14,7 @@ import {
 } from "@/data/packages";
 
 export const metadata = {
-  title: "Ramadan Umrah Packages 2027 from UK | Umrah Planner™",
+  title: "Ramadan Umrah Packages 2027 from UK | Umrah Planers™",
   description:
     "Plan your Ramadan Umrah Packages 2027 from the UK starting from £795pp. ATOL protected 3, 4 and 5-star packages with flights, hotels near the Haram, transfers & visa support.",
 };
@@ -43,9 +43,9 @@ export default function RamadanUmrahPackagesPage() {
                   لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ
                 </div>
 
-                <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
+                {/* <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
                   Begin your 2027 pilgrimage to Umrah during Ramadan from Britain with Umrah Planner, with rates from £790 per traveller and stay lengths of 7, 10, or 14 nights. Guests can choose from three-, four-, and five-star lodging situated in the sacred cities of Makkah and Madinah. Arrangements may feature round-trip air travel, accommodation, airport collection, transportation between the two cities, and guidance regarding visa formalities, making the experience suitable for solo visitors, relatives, and larger parties. You can schedule your visit for the start of the holy month, any Ashra, or the final ten nights, including the search for Laylatul Qadr, while our UK-based specialists remain available throughout the booking process and return journey. Qualifying flight-and-holiday reservations receive ATOL financial protection under reference 10416. Displayed fares are calculated for four occupants sharing, with the payable amount dependent on travel dates and remaining inventory.
-                </p>
+                </p> */}
 
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <a

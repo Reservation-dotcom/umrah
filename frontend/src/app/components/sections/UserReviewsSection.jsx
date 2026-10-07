@@ -8,7 +8,7 @@ export default function UserReviewsSection({
       Believe by Pilgrims Across <span className="italic font-normal text-[#0e5c4a]">the UK.</span>
     </>
   ),
-  subtitle = "Genuine experiences from UK brothers & sisters who completed their Umrah with Umrah Planner.",
+  subtitle = "Genuine experiences from UK brothers & sisters who completed their Umrah with Umrah Planers.",
   limit,
 }) {
   const reviews = typeof limit === "number" ? userReviews.slice(0, limit) : userReviews;

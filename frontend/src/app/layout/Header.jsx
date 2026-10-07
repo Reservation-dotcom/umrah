@@ -356,7 +356,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 px-3 text-sm font-bold text-[#0f172a] hover:text-[#1E3A8A]"
             >
-              Contact Us
+              Call Now
             </Link>
           </div>
         )}

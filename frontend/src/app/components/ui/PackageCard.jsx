@@ -15,6 +15,7 @@ export default function PackageCard({ pkg }) {
     madinahNights,
     image,
     slug,
+    citySlug,
   } = pkg;
 
   const [imgSrc, setImgSrc] = useState(image);
@@ -122,7 +123,7 @@ export default function PackageCard({ pkg }) {
 
           <a
             href="tel:02039700013"
-            className="border border-blue-200 bg-blue-50/60 hover:bg-blue-100/80 text-[#06142e] font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all"
+            className="bg-red-600 hover:bg-red-700 text-white font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all"
           >
             <svg
               className="w-4 h-4 shrink-0"
@@ -138,19 +139,19 @@ export default function PackageCard({ pkg }) {
                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
               />
             </svg>
-            Contact Us
+            Call Now
           </a>
 
           <Link
-            href={`/${slug}#hero-section`}
-            className="md:order-last bg-[#D4AF37] hover:bg-[#c59b27] text-slate-950 font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center transition-all shadow-xs"
+            href={citySlug ? `/${citySlug}#hero-section` : `/${slug}#hero-section`}
+            className="md:order-last bg-green-600 hover:bg-green-700 text-white font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center transition-all shadow-xs"
           >
             Enquire
           </Link>
 
           <Link
-            href={`/${slug}`}
-            className="bg-[#06142e] hover:bg-[#0b2545] text-white font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center transition-all shadow-xs"
+            href={citySlug ? `/city-package/${citySlug}/${slug}` : `/${slug}`}
+            className="bg-red-600 hover:bg-red-700 text-white font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center transition-all shadow-xs"
           >
             View Details
           </Link>

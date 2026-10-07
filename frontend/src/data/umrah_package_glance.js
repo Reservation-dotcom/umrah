@@ -23,27 +23,27 @@ export const idealPackageGuide = [
   {
     userType: "A first-time pilgrim",
     suitablePackage: "3-Star, 7 nights (from £720pp)",
-    why: "An affordable way to complete your first Umrah",
+    why: "Affordable and practical for your first Umrah",
   },
   {
     userType: "A family with children",
     suitablePackage: "4-Star, 10 or 14 nights",
-    why: "More room, family-friendly arrangements and a relaxed schedule",
+    why: "More comfort with a relaxed itinerary",
   },
   {
     userType: "Elderly or less-mobile parents",
     suitablePackage: "14 nights, hotels near the Haram",
-    why: "Convenient locations with less walking and a slower daily routine",
+    why: "Less walking and more time to rest",
   },
   {
     userType: "A couple",
     suitablePackage: "5-Star, 7 nights",
-    why: "Premium accommodation with comfortable double rooms and Haram views",
+    why: "Premium comfort with excellent accommodation",
   },
   {
     userType: "On a tight budget",
     suitablePackage: "3-Star quad sharing",
-    why: "A cost-conscious option for keeping the per-person fare lower",
+    why: "A lower-cost option for pilgrims",
   },
 ];
 
@@ -51,17 +51,17 @@ export const packageGlanceIntro = {
   title: "Explore Our Umrah Packages",
 
   description:
-    "Our affordable Umrah packages from across the UK feature 3, 4 and 5-star accommodation with 7, 10 and 14-night itineraries. Options are available for families, women and groups, with return airfare, hotels in Makkah and Madinah, transportation and Nusuk permit assistance included. Any additional services are clearly presented before confirmation.",
+    "Affordable Umrah packages from across the UK with 3, 4 and 5-star hotels, 7, 10 and 14-night stays, return flights, transportation and Nusuk permit assistance.",
 
   disclaimer:
-    "Rates are quoted per person, start from the listed amounts and depend on availability. Seven-night itineraries generally include 4 nights in Makkah and 3 in Madinah; ten-night stays usually provide 5 nights in each city; fourteen-night trips generally offer 7 nights in both locations. Hotel names are confirmed during booking, while stated distances are approximate.",
+    "Prices are per person and subject to availability. Typical stays are 4+3 nights for 7 nights, 5+5 for 10 nights and 7+7 for 14 nights. Hotels are confirmed at booking.",
 };
 
 export const idealGuideIntro = {
   title: "Choose the Right Umrah Package from the UK",
 
   description:
-    "Finding the right Umrah option can depend on your travel group, preferred comfort level and length of stay. Use this guide to explore suitable choices for different types of UK pilgrims, with flexible arrangements available around your dates and requirements.",
+    "Choose an Umrah package based on your budget, group size, comfort level and preferred length of stay.",
 };
 
 export const additionalGlanceContent = [
@@ -71,14 +71,14 @@ export const additionalGlanceContent = [
     title: "Explore Our Umrah Package Options",
 
     content:
-      "Our flight-inclusive Umrah packages combine accommodation in Makkah and Madinah with transportation and Nusuk permit assistance. Selected hotels provide convenient access to Masjid al-Haram in Makkah and Masjid an-Nabawi in Madinah. When arranging accommodation, our team considers the walking route, entrances and step-free access so that the practical journey is as convenient as possible. In Makkah, selected Ajyad properties also provide access through the quieter Safa entrance.",
+      "Our Umrah packages combine flights, Makkah and Madinah accommodation, transportation and Nusuk permit assistance, with options to suit different budgets and travel needs.",
 
     subSections: [
       {
         subtitle: "3-Star Economy Umrah Packages",
 
         text:
-          "Our value-focused 3-star options feature centrally positioned Emaar properties in Ajyad, including Emaar Afaq Al Sud and Emaar Diwan Al Sud in Makkah (approximately 900 m from Masjid al-Haram). In Madinah, accommodation may include Emaar Taiba or Grand Zowar (approximately 600 m from Masjid an-Nabawi).\n\n• 3-Star, 7 nights from £720 pp: 4 nights in Makkah and 3 in Madinah, offering a practical option for your first Umrah.\n• 3-Star, 10 nights from £785 pp: 5 nights in each city, giving pilgrims additional time to worship and explore the Holy Cities.\n• 3-Star, 14 nights from £845 pp: 7 nights in both Makkah and Madinah, providing a longer and more relaxed stay.",
+          "Affordable options with practical accommodation in Makkah and Madinah.\n\n• 7 nights from £720 pp: 4 nights in Makkah and 3 in Madinah.\n• 10 nights from £785 pp: 5 nights in each city.\n• 14 nights from £845 pp: 7 nights in each city.",
 
       },
 
@@ -86,7 +86,7 @@ export const additionalGlanceContent = [
         subtitle: "4-Star Comfort Umrah Packages",
 
         text:
-          "Our 4-star selections can include Emaar Grand or Infinity Hotel in Makkah (approximately 750 to 900 m from Masjid al-Haram), together with Mias Hotel in Madinah (around a 7-minute walk from Masjid an-Nabawi).\n\n• 4-Star, 7 nights from £760 pp: upgraded accommodation with a convenient 4-night Makkah and 3-night Madinah itinerary.\n• 4-Star, 10 nights from £830 pp: 5 nights in each Holy City with comfortable and well-positioned accommodation.\n• 4-Star, 14 nights from £890 pp: a longer stay offering additional time for worship, rest and Ziyarat.",
+          "Enjoy upgraded accommodation and added comfort throughout your Umrah journey.\n\n• 7 nights from £760 pp: 4 nights in Makkah and 3 in Madinah.\n• 10 nights from £830 pp: 5 nights in each city.\n• 14 nights from £890 pp: 7 nights in each city.",
 
       },
 
@@ -94,7 +94,7 @@ export const additionalGlanceContent = [
         subtitle: "5-Star Luxury Umrah Packages",
 
         text:
-          "For travellers seeking a more premium experience, selected 5-star accommodation can include Swissotel Makkah or Makarem Ajyad (approximately 400 m from Masjid al-Haram), along with Dar Al Eiman Al Haram in Madinah (around a 3-minute walk from Masjid an-Nabawi, the Prophet's Mosque).\n\n• 5-Star, 7 nights from £820 pp: premium accommodation close to the Haram, with Haram-view rooms and premium-cabin flights available on request.\n• 5-Star, 10 nights from £900 pp: an enhanced itinerary featuring 5 nights in each Holy City, with full-board options available.\n• 5-Star, 14 nights from £970 pp: an extended premium stay with more time to relax and worship.",
+          "Premium accommodation and enhanced travel arrangements for a more comfortable experience.\n\n• 7 nights from £820 pp: Premium accommodation close to the Haram.\n• 10 nights from £900 pp: 5 nights in Makkah and 5 in Madinah.\n• 14 nights from £970 pp: 7 nights in each Holy City.",
 
       },
     ],
@@ -106,7 +106,7 @@ export const additionalGlanceContent = [
     title: "Add a Stopover to Your Umrah",
 
     content:
-      "Want to divide your journey or visit another destination along the way? Add a two to four-day stop in a Muslim-friendly city before or after your Umrah. Popular combinations include Doha (from £1,395 pp), Dubai (from £1,295 pp), Istanbul (from £1,375 pp), and Cairo, where you can visit the Pyramids and Nile (from £1,699 pp). These options can be combined with 5 to 10 nights in Saudi Arabia. Share your preferred destination and travel dates, and we can arrange the itinerary around your chosen package.",
+      "Extend your journey with a 2 to 4-day stopover in destinations such as Doha, Dubai, Istanbul or Cairo. Share your preferred destination and dates for a tailored itinerary.",
 
   },
 
@@ -116,7 +116,7 @@ export const additionalGlanceContent = [
     title: "What Does Your Umrah Package Cover?",
 
     content:
-      "A standard Umrah arrangement generally combines return airfare, accommodation in Makkah and Madinah, airport transportation, travel between the two cities and guidance with the Nusuk process.\n\nYour package can include:\n- Return UK flights with established airlines such as Saudia, British Airways, Emirates, Qatar Airways, Turkish Airlines and Etihad.\n- Accommodation in Makkah and Madinah with convenient access to the Haram.\n- Airport collection and transportation between the Holy Cities.\n- Nusuk permit assistance together with UK-based support throughout your journey.",
+      "Packages generally include return flights, Makkah and Madinah accommodation, airport transfers, intercity transportation and Nusuk permit assistance.\n\nYour package may include:\n- Return UK flights with leading airlines.\n- Hotels in Makkah and Madinah.\n- Airport and intercity transfers.\n- Nusuk permit assistance and UK-based support.",
 
   },
 
@@ -126,7 +126,7 @@ export const additionalGlanceContent = [
     title: "What Is the Price of an Umrah Package from the UK?",
 
     content:
-      "Umrah prices from the UK begin at £720 per person for a 3-star, 7-night itinerary. The final rate can vary according to hotel category, duration, season and departure location. Current starting prices are £760 pp for 4-star packages and £820 pp for 5-star packages.\n\nMain factors that can affect the total price include:\n1. Accommodation category and proximity to the Haram\n2. Number of nights selected — 7, 10 or 14\n3. Time of travel, including peak periods such as Ramadan, December and Easter\n4. UK departure airport and flight itinerary\n5. Occupancy choice, including Quad, Triple or Double rooms",
+      "Umrah packages start from £720 pp for 3-star, £760 pp for 4-star and £820 pp for 5-star accommodation. Prices vary by hotel, travel dates, departure airport and room occupancy.\n\nKey price factors include:\n1. Hotel category and location\n2. Number of nights\n3. Travel season\n4. UK departure airport\n5. Room occupancy",
 
   },
 
@@ -136,7 +136,7 @@ export const additionalGlanceContent = [
     title: "Umrah Entry Requirements, Saudi ETA and Nusuk",
 
     content:
-      "For eligible UK travellers, entry arrangements may involve the Saudi ETA alongside the required Nusuk permit for Umrah. Our team can provide guidance with the relevant travel documentation and permit process before departure.\n\nTravel Document Checklist:\n- Passport with a minimum of 6 months' validity from your arrival date.\n- MenACWY (meningitis) vaccination certificate meeting the applicable entry requirements.\n- Valid ETA, eVisa or Umrah visa, together with the required Nusuk permit.",
+      "Eligible UK travellers may require a Saudi ETA or visa and a Nusuk permit for Umrah. Our team can assist with the relevant travel documentation and permit process.\n\nTravel Document Checklist:\n- Passport valid for at least 6 months.\n- MenACWY vaccination certificate where required.\n- Valid ETA, eVisa or Umrah visa and Nusuk permit.",
 
   },
 ];

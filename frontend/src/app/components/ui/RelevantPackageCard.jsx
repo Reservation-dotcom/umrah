@@ -39,7 +39,9 @@ export default function RelevantPackageCard({ pkg }) {
             </span>
           </div>
           <Link
-            href={`/${pkg.slug}`}
+            href={pkg.citySlug
+              ? `/city-package/${pkg.citySlug}/${pkg.slug}`
+              : `/${pkg.slug}`}
             className="text-[#1E3A8A] font-bold text-sm hover:text-[#06142e]"
           >
             View →

@@ -18,88 +18,112 @@ const heroTitle = hajjLines[0];
 const arabicCalligraphy = hajjLines[1];
 const heroDescription = hajjLines[2];
 
-function getPackageGroups(lines) {
-  const groups = { A: [], B: [] };
-  let activeGroup = null;
+const maktabALocalImages = ["/hajj_1.png", "/hajj_2.png", "/hajj_3.png"];
+const maktabBLocalImages = ["/hajj_4.png", "/hajj_5.png"];
+const maktabAPackages = hajjPackagesMaktabA
+  .slice(0, maktabALocalImages.length)
+  .map((pkg, index) => ({
+    ...pkg,
+    image: maktabALocalImages[index],
+  }));
+const maktabBPackages = hajjPackagesMaktabB
+  .slice(0, maktabBLocalImages.length)
+  .map((pkg, index) => ({
+    ...pkg,
+    image: maktabBLocalImages[index],
+  }));
 
-  for (const line of lines) {
-    if (line.startsWith("Pre-Booking Maktab A")) {
-      activeGroup = "A";
-    } else if (line.startsWith("Installment Planned Maktab B")) {
-      activeGroup = "B";
-    } else if (activeGroup && line.startsWith("https://")) {
-      groups[activeGroup].push(line);
+function renderInlineMarkdown(text) {
+  const pattern = /(\*\*[^*]+\*\*)/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
     }
+
+    parts.push(
+      <strong key={`${match.index}-${match[0]}`} className="font-semibold text-slate-800">
+        {match[1].replace(/^\*\*|\*\*$/g, "")}
+      </strong>,
+    );
+
+    lastIndex = match.index + match[0].length;
   }
 
-  return groups;
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
 }
 
-const packageImageGroups = getPackageGroups(hajjLines);
-const maktabAPackages = hajjPackagesMaktabA.map((pkg, index) => ({
-  ...pkg,
-  image: packageImageGroups.A[index] ?? pkg.image,
-}));
-const maktabBPackages = hajjPackagesMaktabB.map((pkg, index) => ({
-  ...pkg,
-  image: packageImageGroups.B[index] ?? pkg.image,
-}));
-
-const majorHeadings = new Set([
-  "Why Our Hajj Packages Stand Out",
-  "What's Included in Our Hajj Packages",
-  "Categories of Our Hajj 2027 Packages",
-  "Complete Hajj Guidance for First-Time Pilgrims",
-  "How to Book Your Hajj Package from the UK",
-]);
-
-const minorHeadings = new Set([
-  "Expert Pilgrimage Planning",
-  "Affordable Packages for Every Pilgrim",
-  "Stress-Free Travel from Start to Finish",
-  "Guided Spiritual Enrichment",
-  "Flexible Travel Options",
-  "4-Star Shifting Hajj Packages - Affordable Comfort",
-  "5-Star Shifting Hajj Packages - Premium Spiritual Experience",
-  "Customised Hajj Packages - Designed for You",
-  "Non-Shifting Hajj Packages - Comfort and Stability",
-]);
-
 function renderContentLine(line, index) {
-  const normalizedLine = line.replace(/[\u2013\u2014]/g, "-");
+  const trimmedLine = line.trim();
 
-  if (index === 0 || majorHeadings.has(line)) {
+  if (!trimmedLine) {
+    return null;
+  }
+
+  if (/^#{1,6}\s+/.test(trimmedLine)) {
+    const level = trimmedLine.match(/^#+/)?.[0].length ?? 1;
+    const headingText = trimmedLine.replace(/^#{1,6}\s+/, "");
+    const headingClasses = {
+      1: "font-serif text-3xl sm:text-4xl font-extrabold text-[#06142e] pt-8 first:pt-0",
+      2: "font-serif text-2xl sm:text-3xl font-bold text-[#06142e] pt-8 first:pt-0",
+      3: "font-serif text-xl font-bold text-[#06142e] pt-4",
+      4: "font-serif text-lg font-bold text-[#06142e] pt-3",
+      5: "font-serif text-base font-bold text-[#06142e] pt-3",
+      6: "font-serif text-sm font-bold uppercase tracking-wide text-[#06142e] pt-3",
+    };
+
+    const HeadingTag = `h${Math.min(level, 6)}`;
+
     return (
-      <h2
-        key={line}
-        className="font-serif text-2xl sm:text-3xl font-bold text-[#06142e] pt-8 first:pt-0"
+      <HeadingTag
+        key={`${HeadingTag}-${index}-${headingText}`}
+        className={headingClasses[Math.min(level, 6)]}
       >
-        {line}
-      </h2>
+        {renderInlineMarkdown(headingText)}
+      </HeadingTag>
     );
   }
 
-  if (minorHeadings.has(normalizedLine)) {
+  if (/^[-*]\s+/.test(trimmedLine)) {
     return (
-      <h3 key={line} className="font-serif text-xl font-bold text-[#06142e] pt-3">
-        {line}
-      </h3>
+      <p key={`${trimmedLine}-${index}`} className="text-slate-600 leading-7 pl-4">
+        <span className="mr-2 text-slate-800">•</span>
+        {renderInlineMarkdown(trimmedLine.replace(/^[-*]\s+/, ""))}
+      </p>
     );
   }
 
-  const labelEnd = line.indexOf(": ");
+  if (/^\d+\.\s+/.test(trimmedLine)) {
+    return (
+      <p key={`${trimmedLine}-${index}`} className="text-slate-600 leading-7 pl-4">
+        <span className="mr-2 font-semibold text-slate-800">
+          {trimmedLine.match(/^\d+\./)?.[0]}
+        </span>
+        {renderInlineMarkdown(trimmedLine.replace(/^\d+\.\s+/, ""))}
+      </p>
+    );
+  }
+
+  const labelEnd = trimmedLine.indexOf(": ");
   if (labelEnd > 0 && labelEnd < 70) {
     return (
-      <p key={line} className="text-slate-600 leading-7">
-        <strong className="text-slate-800">{line.slice(0, labelEnd)}:</strong>
-        {line.slice(labelEnd + 1)}
+      <p key={`${trimmedLine}-${index}`} className="text-slate-600 leading-7">
+        <strong className="text-slate-800">{trimmedLine.slice(0, labelEnd)}:</strong>
+        {renderInlineMarkdown(trimmedLine.slice(labelEnd + 1))}
       </p>
     );
   }
 
   return (
-    <p key={line} className="text-slate-600 leading-7">
-      {line}
+    <p key={`${trimmedLine}-${index}`} className="text-slate-600 leading-7">
+      {renderInlineMarkdown(trimmedLine)}
     </p>
   );
 }
@@ -110,7 +134,7 @@ const contentLines = makkahTourContent
   .filter(Boolean);
 
 export const metadata = {
-  title: "Hajj Packages 2027 from UK | Umrah Planner",
+  title: "Hajj Packages 2027 from UK | Umrah Planers",
   description:
     "Explore Hajj packages 2027 from the UK with flights, accommodation, transport between the holy sites, and experienced group leaders.",
 };
@@ -137,14 +161,14 @@ export default function HajjPackagesPage() {
                 <p className="font-arabic text-3xl sm:text-4xl text-[#D4AF37]">
                   {arabicCalligraphy}
                 </p>
-                <p className="max-w-2xl text-sm sm:text-base leading-relaxed text-blue-100/90">
+                {/* <p className="max-w-2xl text-sm sm:text-base leading-relaxed text-blue-100/90">
                   {heroDescription}
-                </p>
-                <div className="flex flex-wrap gap-x-6 gap-y-2 border-t border-white/15 pt-5 text-xs font-semibold text-slate-200">
+                </p> */}
+                {/* <div className="flex flex-wrap gap-x-6 gap-y-2 border-t border-white/15 pt-5 text-xs font-semibold text-slate-200">
                   <span>ATOL protected</span>
                   <span>Experienced UK group leaders</span>
                   <span>Support throughout your journey</span>
-                </div>
+                </div> */}
               </div>
 
               <div className="lg:col-span-5" id="quote">
@@ -185,6 +209,10 @@ export default function HajjPackagesPage() {
                 {maktabBPackages.map((pkg) => (
                   <HajjPackageCard key={pkg.id} pkg={pkg} />
                 ))}
+                <HajjPackageCard
+                  key="hajj-image-6"
+                  pkg={{ id: "hajj-image-6", title: "Hajj package", image: "/hajj_6.png" }}
+                />
               </div>
             </div>
           </div>
@@ -203,7 +231,7 @@ export default function HajjPackagesPage() {
               Real Stories from <span className="italic font-normal text-[#1E3A8A]">Our Pilgrims.</span>
             </>
           }
-          subtitle="Recent feedback from pilgrims who travelled with Umrah Planner."
+          subtitle="Recent feedback from pilgrims who travelled with Umrah Planers."
           limit={4}
         />
       </div>

@@ -10,7 +10,7 @@ export const hajjPackagesMaktabA = [
     price: "8,995",
     mina: "Maktab A Zone",
     meals: "Full Board",
-    image: "https://www.makkahtour.co.uk/images/hajj/2026-hajj-package-premium.webp",
+    image: "/hajj_1.png",
     slug: "hajj-packages",
     rating: "4.9",
     reviewCount: 214,

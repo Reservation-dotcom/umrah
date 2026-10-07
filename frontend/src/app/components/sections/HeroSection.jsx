@@ -37,7 +37,7 @@ export default function HeroSection({ pkg, city }) {
                 <>Umrah Packages <span className="italic font-normal text-[#D4AF37]">from {city.name}</span></>
               ) : (
                 <>
-                  Umrah Packages <span className="italic font-normal text-[#D4AF37]">From UK</span>
+                  Affordable & Popular Umrah Packages <span className="italic font-normal text-[#D4AF37]">In UK</span>
                 </>
               )}
             </h1>
@@ -51,14 +51,6 @@ export default function HeroSection({ pkg, city }) {
             <div className="font-arabic text-3xl sm:text-4xl text-[#D4AF37] tracking-wider py-1">
               لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ
             </div>
-
-            <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
-              {isPackage
-                ? pkg.description
-                : isCity
-                  ? city.description ?? `Compare 3, 4 and 5-star Umrah packages departing from ${city.name}. Choose from 7, 10, and 14-night itineraries with flights, accommodation in Makkah and Madinah, transfers, and visa assistance arranged for your journey.`
-                : "Plan your Umrah from the UK with a package that brings flights, Makkah and Madinah accommodation, airport transfers, intercity transport and Nusuk assistance together. Choose from 3, 4 or 5-star options starting at £720 per person, with 7, 10 and 14-night itineraries and departures available from major airports across the UK. All flight-inclusive bookings carry ATOL protection under 10416, while our UK support team remains available throughout your journey, from your initial booking to your return home."}
-            </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
@@ -93,7 +85,7 @@ export default function HeroSection({ pkg, city }) {
           </div>
         </div>
 
-        {!isPackage && (
+        {/* {!isPackage && (
           <div className="mt-5 pt-8 border-t border-slate-700/40 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div className="bg-white/5 backdrop-blur-md rounded-2xl p-3 border border-white/10">
               <span className="text-xs font-semibold text-blue-200 block">🛡️ ATOL Protected</span>
@@ -115,7 +107,7 @@ export default function HeroSection({ pkg, city }) {
               <span className="text-[10px] text-blue-300/80">UK Travel Advisors</span>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );

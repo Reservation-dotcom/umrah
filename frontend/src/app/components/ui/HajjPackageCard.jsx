@@ -8,8 +8,8 @@ export default function HajjPackageCard({ pkg }) {
 
   const [imgSrc, setImgSrc] = useState(image);
 
-  const fallbackImage =
-    "https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80";
+  // const fallbackImage =
+  //   "https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80";
 
   const handleEnquire = () => {
     const hero = document.getElementById("hajj-hero-section");
@@ -20,19 +20,19 @@ export default function HajjPackageCard({ pkg }) {
 
   return (
     <div className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
-      <div className="aspect-[3/4] w-full overflow-hidden bg-stone-100">
+      <div className="w-full overflow-hidden bg-stone-100">
         <img
           src={imgSrc}
           alt={title}
-          onError={() => setImgSrc(fallbackImage)}
-          className="h-full w-full object-cover object-top"
+          
+          className="block h-auto w-full"
         />
       </div>
 
       <div className="space-y-3 p-3">
-        <h3 className="min-h-7 text-center font-serif text-base font-bold leading-snug text-[#1c2520]">
+        {/* <h3 className="min-h-7 text-center font-serif text-base font-bold leading-snug text-[#1c2520]">
           {title}
-        </h3>
+        </h3> */}
 
         <div className="grid grid-cols-2 gap-2">
           <a

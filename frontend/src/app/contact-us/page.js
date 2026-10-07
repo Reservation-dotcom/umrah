@@ -68,7 +68,7 @@ function ContactIcon({ kind, className = "h-5 w-5" }) {
 }
 
 export const metadata = {
-  title: "Contact Us | Umrah Planner",
+  title: "Call Now | Umrah Planers",
   description:
     "Speak with a real Umrah advisor by phone, WhatsApp, email, or send us an enquiry.",
 };
