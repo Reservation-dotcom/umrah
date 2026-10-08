@@ -133,10 +133,13 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-2.5 text-[11px] text-slate-400">
-              {/* <li className="flex items-start gap-2">
-                <span>📍</span>
-                <span>262 A Upper Tooting Road, London SW17 0DN, United Kingdom</span>
-              </li> */}
+              <li className="flex items-start gap-2">
+                <span aria-hidden="true">📍</span>
+                <span>
+                  <span className="mb-1 block font-semibold text-slate-300">Registered office address</span>
+                  128 City Road, London, United Kingdom, EC1V 2NX
+                </span>
+              </li>
               <li>
                 <a href="tel:02039700013" className="flex items-center gap-2 hover:text-[#D4AF37]">
                   <span>📞</span>

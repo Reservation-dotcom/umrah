@@ -33,28 +33,16 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative h-12 w-14 overflow-hidden transition-transform group-hover:scale-105 sm:h-15 sm:w-18">
+          <Link href="/" aria-label="Umrah Planers home" className="flex shrink-0 items-center group">
+            <div className="relative aspect-[980/630] overflow-hidden transition-transform group-hover:scale-105  w-[120px]">
               <Image
-                src="/umrah-Planner-logo.png"
-                alt=""
+                src="/umrah%20planers%20logo.png"
+                alt="Umrah Planers"
                 fill
                 priority
-                sizes="(max-width: 639px)  72px"
-                className="object-cover"
+                sizes="(max-width: 359px) 88px, (max-width: 639px) 104px, (max-width: 767px) 112px, 120px"
+                className="object-contain"
               />
-            </div>
-
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1">
-                <span className="font-serif text-lg sm:text-2xl font-extrabold text-[#06142e] tracking-tight">
-                  Umrah Planers
-                </span>
-                <span className="text-xs text-[#D4AF37] font-semibold">™</span>
-              </div>
-              {/* <span className="text-[10px] text-slate-500 tracking-widest uppercase font-medium -mt-1">
-                7 Continents Travel
-              </span> */}
             </div>
           </Link>
 
@@ -203,7 +191,7 @@ export default function Header() {
             {/* Call Now Button */}
             <button
               onClick={handleCallClick}
-              className="lg:hidden bg-[#06142e] hover:bg-[#0b2545] text-white font-bold text-xs py-2 px-3.5 sm:px-4 sm:py-2.5 rounded-full transition-all shadow-md flex items-center gap-1.5 cursor-pointer active:scale-95"
+              className="hidden sm:flex lg:hidden bg-[#06142e] hover:bg-[#0b2545] text-white font-bold text-xs py-2 px-3.5 sm:px-4 sm:py-2.5 rounded-full transition-all shadow-md items-center gap-1.5 cursor-pointer active:scale-95"
             >
               <svg className="w-3.5 h-3.5 text-[#D4AF37] fill-current" viewBox="0 0 24 24">
                 <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -356,7 +344,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 px-3 text-sm font-bold text-[#0f172a] hover:text-[#1E3A8A]"
             >
-              Call Now
+              Contact
             </Link>
           </div>
         )}

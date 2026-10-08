@@ -181,6 +181,32 @@ export default function ContactUsPage() {
                   </a>
                 ))}
               </div>
+
+              <div className="mt-5 flex items-start gap-4 rounded-lg border border-slate-200 bg-white p-4">
+                <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-[#1E3A8A]">
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+                    <circle cx="12" cy="10" r="2.5" />
+                  </svg>
+                </span>
+                <span>
+                  <span className="block text-sm font-bold text-[#0f172a]">
+                    Registered office address
+                  </span>
+                  <span className="mt-1 block text-sm leading-6 text-slate-600">
+                    128 City Road, London, United Kingdom, EC1V 2NX
+                  </span>
+                </span>
+              </div>
             </aside>
           </div>
         </section>
