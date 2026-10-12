@@ -36,7 +36,7 @@ export default function Header() {
           <Link href="/" aria-label="Umrah Planers home" className="flex shrink-0 items-center group">
             <div className="relative aspect-[980/630] overflow-hidden transition-transform group-hover:scale-105  w-[120px]">
               <Image
-                src="/umrah%20planers%20logo.png"
+                src="/umrah-planers-logo.png"
                 alt="Umrah Planers"
                 fill
                 priority
